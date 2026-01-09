@@ -2100,17 +2100,25 @@
                     html += `<button class="sns-nav-btn next" onclick="window.SNS_Reactions.Actions.scrollCarousel(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>`;
                     html += '</div>';
                 } else if (platform === 'messenger') {
-                    // Messenger: Chat UI with conversation header
-                    const conversationContext = (posts.length > 0) ? posts[0].conversationContext : null;
+                    // Messenger: Carousel Layout (each POST = one conversation snapshot)
+                    html += '<div class="sns-carousel-container">';
+                    html += `<button class="sns-nav-btn prev" disabled onclick="window.SNS_Reactions.Actions.scrollCarousel(this, -1)"><i class="fa-solid fa-chevron-left"></i></button>`;
+                    html += '<div class="sns-carousel-wrapper" onscroll="window.SNS_Reactions.Actions.onCarouselScroll(this)">';
 
-                    // Render conversation header
-                    html += window.SNS_Reactions.Templates.messengerHeader(conversationContext);
-
-                    // Render chat messages
-                    html += '<div class="sns-messenger-chat-container">';
                     posts.forEach(post => {
+                        const conversationContext = post.conversationContext;
+
+                        // Each post is a separate conversation card
+                        html += '<div class="sns-messenger-conversation-card">';
+                        html += window.SNS_Reactions.Templates.messengerHeader(conversationContext);
+                        html += '<div class="sns-messenger-chat-container">';
                         html += window.SNS_Reactions.Templates.messengerCard(post, conversationContext);
+                        html += '</div>';
+                        html += '</div>';
                     });
+
+                    html += '</div>';
+                    html += `<button class="sns-nav-btn next" onclick="window.SNS_Reactions.Actions.scrollCarousel(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>`;
                     html += '</div>';
                 } else {
                     // Twitter/Default: Vertical Stack

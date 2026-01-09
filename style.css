@@ -3518,6 +3518,24 @@ select.sns-start-preset-select option {
    MESSENGER PLATFORM STYLES
    ============================================= */
 
+/* Messenger Conversation Card (Carousel Item) */
+.sns-messenger-conversation-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 100%;
+    scroll-snap-align: start;
+}
+
+.sns-theme-dark .sns-messenger-conversation-card {
+    background: #242526;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 /* Messenger Header */
 .sns-messenger-header {
     padding: 12px 15px;
@@ -3526,6 +3544,7 @@ select.sns-start-preset-select option {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 .sns-theme-dark .sns-messenger-header {
@@ -3580,10 +3599,31 @@ select.sns-start-preset-select option {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    overflow-y: auto;
+    max-height: 500px;
+    flex: 1;
 }
 
 .sns-theme-dark .sns-messenger-chat-container {
     background: #18191a;
+}
+
+/* Scrollbar styling for chat container */
+.sns-messenger-chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sns-messenger-chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sns-messenger-chat-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.sns-theme-dark .sns-messenger-chat-container::-webkit-scrollbar-thumb {
+    background: #555;
 }
 
 /* Message Wrapper */
@@ -3592,11 +3632,38 @@ select.sns-start-preset-select option {
     align-items: flex-start;
     gap: 8px;
     margin-bottom: 4px;
+    opacity: 0;
+    animation: messageSlideIn 0.3s ease-out forwards;
 }
 
 .sns-messenger-message.right {
     flex-direction: row-reverse;
 }
+
+/* Message animation - each message slides in with delay */
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation delay for sequential messages */
+.sns-messenger-message:nth-child(1) { animation-delay: 0.1s; }
+.sns-messenger-message:nth-child(2) { animation-delay: 0.2s; }
+.sns-messenger-message:nth-child(3) { animation-delay: 0.3s; }
+.sns-messenger-message:nth-child(4) { animation-delay: 0.4s; }
+.sns-messenger-message:nth-child(5) { animation-delay: 0.5s; }
+.sns-messenger-message:nth-child(6) { animation-delay: 0.6s; }
+.sns-messenger-message:nth-child(7) { animation-delay: 0.7s; }
+.sns-messenger-message:nth-child(8) { animation-delay: 0.8s; }
+.sns-messenger-message:nth-child(9) { animation-delay: 0.9s; }
+.sns-messenger-message:nth-child(10) { animation-delay: 1.0s; }
+.sns-messenger-message:nth-child(n+11) { animation-delay: 1.1s; }
 
 /* Avatar */
 .sns-messenger-avatar {
@@ -3732,6 +3799,23 @@ select.sns-start-preset-select option {
     color: #2e89ff;
 }
 
+/* Carousel support for Messenger */
+.sns-carousel-wrapper .sns-messenger-conversation-card {
+    flex-shrink: 0;
+    width: 96%;
+    margin: 0 2%;
+    height: auto;
+    max-height: 600px;
+}
+
+.sns-carousel-wrapper .sns-messenger-conversation-card:first-child {
+    margin-left: 2%;
+}
+
+.sns-carousel-wrapper .sns-messenger-conversation-card:last-child {
+    margin-right: 2%;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 600px) {
     .sns-messenger-content {
@@ -3746,6 +3830,19 @@ select.sns-start-preset-select option {
         width: 28px;
         height: 28px;
         font-size: 12px;
+    }
+
+    .sns-carousel-wrapper .sns-messenger-conversation-card {
+        width: 92%;
+        margin: 0 4%;
+    }
+
+    .sns-carousel-wrapper .sns-messenger-conversation-card:first-child {
+        margin-left: 4%;
+    }
+
+    .sns-carousel-wrapper .sns-messenger-conversation-card:last-child {
+        margin-right: 4%;
     }
 }
 
