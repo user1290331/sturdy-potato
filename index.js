@@ -825,38 +825,18 @@
             const otherParticipants = participants.slice(1);
             const chatTitle = otherParticipants.join(', ') || 'Conversation';
 
-            if (isGroupChat) {
-                // Group chat header with avatars
-                const displayParticipants = otherParticipants.slice(0, 3); // Show up to 3 avatars
-                return `
-                    <div class="sns-messenger-header">
-                        <div class="sns-messenger-header-avatars">
-                            ${displayParticipants.map(p => `
-                                <div class="sns-messenger-header-avatar" style="background-color: ${Utils.getAvatarColor(p)};">
-                                    ${Utils.getAvatarLetter(p)}
-                                </div>
-                            `).join('')}
+            // Unified header for both 1:1 and group chat (no avatars)
+            return `
+                <div class="sns-messenger-header">
+                    <div class="sns-messenger-header-info">
+                        <div class="sns-messenger-header-title">
+                            ${Utils.escapeHtml(chatTitle)}
+                            ${isGroupChat ? `<span class="sns-messenger-member-count">(${participants.length})</span>` : ''}
                         </div>
-                        <div class="sns-messenger-header-info">
-                            <div class="sns-messenger-header-title">
-                                ${Utils.escapeHtml(chatTitle)}
-                                <span class="sns-messenger-member-count">(${participants.length})</span>
-                            </div>
-                            ${date ? `<div class="sns-messenger-header-date">${Utils.escapeHtml(date)}</div>` : ''}
-                        </div>
+                        ${date ? `<div class="sns-messenger-header-date">${Utils.escapeHtml(date)}</div>` : ''}
                     </div>
-                `;
-            } else {
-                // 1:1 chat header
-                return `
-                    <div class="sns-messenger-header">
-                        <div class="sns-messenger-header-info">
-                            <div class="sns-messenger-header-title">${Utils.escapeHtml(chatTitle)}</div>
-                            ${date ? `<div class="sns-messenger-header-date">${Utils.escapeHtml(date)}</div>` : ''}
-                        </div>
-                    </div>
-                `;
-            }
+                </div>
+            `;
         },
 
         messengerCard: (post, conversationContext) => {

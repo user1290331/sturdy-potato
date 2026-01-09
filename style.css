@@ -3571,6 +3571,13 @@ select.sns-start-preset-select option {
     flex-shrink: 0;
 }
 
+.sns-messenger-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
 .sns-messenger-header-title {
     font-weight: 600;
     font-size: 15px;
@@ -3579,6 +3586,15 @@ select.sns-start-preset-select option {
 
 .sns-theme-dark .sns-messenger-header-title {
     color: #e4e6eb;
+}
+
+.sns-messenger-header-date {
+    font-size: 13px;
+    color: #65676b;
+}
+
+.sns-theme-dark .sns-messenger-header-date {
+    color: #b0b3b8;
 }
 
 .sns-messenger-member-count {
