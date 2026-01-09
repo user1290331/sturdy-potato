@@ -2,10 +2,11 @@
     "display_name": "SNS 반응",
     "loading_order": 100,
     "author": "user1290331",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "js": "index.js",
     "css": "style.css"
 
 }
+
 
 
