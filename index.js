@@ -4354,7 +4354,8 @@ ${this.getLanguageInstruction()}
                     { id: 'twitter', icon: 'fa-brands fa-twitter', label: 'Twitter' },
                     { id: 'instagram', icon: 'fa-brands fa-instagram', label: 'Instagram' },
                     { id: 'youtube', icon: 'fa-brands fa-youtube', label: 'YouTube' },
-                    { id: 'everytime', icon: 'fa-solid fa-user-graduate', label: 'Everytime' }
+                    { id: 'everytime', icon: 'fa-solid fa-user-graduate', label: 'Everytime' },
+                    { id: 'messenger', icon: 'fa-brands fa-facebook-messenger', label: 'Messenger' }
                 ];
 
                 const platformButtons = platforms.map(p => {
