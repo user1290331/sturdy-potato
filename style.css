@@ -3673,6 +3673,11 @@ select.sns-start-preset-select option {
     margin-bottom: 2px;
 }
 
+.sns-messenger-sender.right {
+    padding-left: 0;
+    padding-right: 12px;
+}
+
 .sns-theme-dark .sns-messenger-sender {
     color: #b0b3b8;
 }

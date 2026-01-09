@@ -902,9 +902,10 @@
                         </div>
                     `;
                 } else {
-                    // Right side message: bubble only
+                    // Right side message: sender name + bubble
                     html += `
                         <div class="sns-messenger-content">
+                            <div class="sns-messenger-sender right">${Utils.escapeHtml(msg.sender)}</div>
                             <div class="sns-messenger-bubble right">
                                 ${Utils.formatContent(msg.content)}
                             </div>
@@ -1401,7 +1402,7 @@
 
                 if (!confirm(`프리셋 "${name}"을(를) 모든 플랫폼에 저장하시겠습니까? (동일한 이름이 있으면 덮어씁니다)`)) return;
 
-                const platforms = ['twitter', 'instagram', 'youtube', 'everytime'];
+                const platforms = ['twitter', 'instagram', 'youtube', 'everytime', 'messenger'];
                 let createdCount = 0;
                 let updatedCount = 0;
 
