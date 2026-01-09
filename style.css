@@ -1,0 +1,3934 @@
+/* SNS Reactions CSS Reset & Scoping */
+:root {
+    --sns-text: #0f1419;
+    --sns-bg: #ffffff;
+    --sns-border: #cfd9de;
+    --sns-quote-bg: #f7f9f9;
+    --sns-modal-bg: rgba(255, 255, 255, 0.95);
+    --sns-accent: #1d9bf0;
+    --sns-secondary: #536471;
+}
+
+.sns-theme-dark {
+    --sns-text: #e7e9ea;
+    --sns-bg: #000000;
+    --sns-border: #2f3336;
+    --sns-quote-bg: #16181c;
+    --sns-modal-bg: rgba(21, 32, 43, 0.95);
+    --sns-secondary: #aaaaaa;
+}
+
+.sns-reaction-wrapper {
+    /* Root Reset */
+    all: initial;
+    /* Re-apply safe defaults */
+    display: block;
+    font-family: 'Pretendard', 'Pretendard JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif !important;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+    color: inherit;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.sns-reaction-container>* {
+    font-family: 'Pretendard', 'Pretendard JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif !important;
+
+}
+
+.sns-reaction-wrapper *,
+.sns-reaction-wrapper *::before,
+.sns-reaction-wrapper *::after {
+    box-sizing: border-box;
+}
+
+/* Force FontAwesome Priority & Isolation */
+.sns-reaction-wrapper .fa,
+.sns-reaction-wrapper .fas,
+.sns-reaction-wrapper .fa-solid,
+.sns-reaction-wrapper .far,
+.sns-reaction-wrapper .fa-regular,
+.sns-reaction-wrapper .fab,
+.sns-reaction-wrapper .fa-brands,
+.sns-reaction-wrapper i[class*="fa-"] {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, sans-serif !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+    /* Ensure no unexpected content override */
+}
+
+.sns-reaction-wrapper .fa-solid,
+.sns-reaction-wrapper .fas {
+    font-weight: 900 !important;
+}
+
+.sns-reaction-wrapper .fa-regular,
+.sns-reaction-wrapper .far {
+    font-weight: 400 !important;
+}
+
+.sns-reaction-wrapper .fa-brands,
+.sns-reaction-wrapper .fab {
+    font-weight: 400 !important;
+}
+
+
+/* FA Content Hardfixes */
+.sns-reaction-wrapper .fa-twitter::before {
+    content: "\f099" !important;
+}
+
+.sns-reaction-wrapper .fa-instagram::before {
+    content: "\f16d" !important;
+}
+
+.sns-reaction-wrapper .fa-youtube::before {
+    content: "\f167" !important;
+}
+
+.sns-reaction-wrapper .fa-user-graduate::before {
+    content: "\f501" !important;
+}
+
+.sns-reaction-wrapper .fa-thumbs-up::before {
+    content: "\f164" !important;
+}
+
+.sns-reaction-wrapper .fa-thumbs-down::before {
+    content: "\f165" !important;
+}
+
+.sns-reaction-wrapper .fa-comment::before {
+    content: "\f075" !important;
+}
+
+.sns-reaction-wrapper .fa-comment-dots::before {
+    content: "\f4ad" !important;
+}
+
+.sns-reaction-wrapper .fa-star::before {
+    content: "\f005" !important;
+}
+
+.sns-reaction-wrapper .fa-retweet::before {
+    content: "\f079" !important;
+}
+
+.sns-reaction-wrapper .fa-heart::before {
+    content: "\f004" !important;
+}
+
+.sns-reaction-wrapper .fa-arrow-down::before {
+    content: "\f063" !important;
+}
+
+.sns-reaction-wrapper .fa-chevron-left::before {
+    content: "\f053" !important;
+}
+
+.sns-reaction-wrapper .fa-chevron-right::before {
+    content: "\f054" !important;
+}
+
+.sns-reaction-wrapper .fa-chevron-down::before {
+    content: "\f078" !important;
+}
+
+.sns-reaction-wrapper .fa-ellipsis-vertical::before,
+.sns-reaction-wrapper .fa-ellipsis::before {
+    content: "\f142" !important;
+}
+
+.sns-reaction-wrapper .fa-plus::before {
+    content: "\f067" !important;
+}
+
+.sns-reaction-wrapper .fa-rotate-right::before {
+    content: "\f2f9" !important;
+}
+
+.sns-reaction-wrapper .fa-pen::before {
+    content: "\f304" !important;
+}
+
+.sns-reaction-wrapper .fa-trash::before {
+    content: "\f1f8" !important;
+}
+
+.sns-reaction-wrapper .fa-floppy-disk::before {
+    content: "\f0c7" !important;
+}
+
+.sns-reaction-wrapper .fa-quote-left::before {
+    content: "\f10d" !important;
+}
+
+.sns-reaction-wrapper .fa-quote-right::before {
+    content: "\f10e" !important;
+}
+
+.sns-reaction-wrapper .fa-bookmark::before {
+    content: "\f02e" !important;
+}
+
+.sns-reaction-wrapper .fa-paper-plane::before {
+    content: "\f1d8" !important;
+}
+
+.sns-reaction-wrapper .fa-user::before {
+    content: "\f007" !important;
+}
+
+.sns-reaction-wrapper .fa-play::before {
+    content: "\f04b" !important;
+}
+
+.sns-reaction-wrapper .fa-image::before {
+    content: "\f03e" !important;
+}
+
+.sns-reaction-wrapper .fa-wand-magic-sparkles::before {
+    content: "\fe0b" !important;
+}
+
+/* Font Fixes for specific FA types */
+.sns-reaction-wrapper .fa,
+.sns-reaction-wrapper .fas,
+.sns-reaction-wrapper .fa-solid {
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", FontAwesome, sans-serif !important;
+    font-weight: 900 !important;
+}
+
+.sns-reaction-wrapper .far,
+.sns-reaction-wrapper .fa-regular {
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", FontAwesome, sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.sns-reaction-wrapper .fab,
+.sns-reaction-wrapper .fa-brands {
+    font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands", FontAwesome, sans-serif !important;
+    font-weight: 400 !important;
+}
+
+/* SNS Reactions Container */
+.sns-reaction-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+
+/* --- Twitter (X) Skin --- */
+.sns-skin-twitter {
+    background-color: #000;
+    color: #e7e9ea;
+    border: 1px solid #2f3336;
+    border-radius: 16px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+}
+
+.sns-twitter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.sns-twitter-user-info {
+    display: flex;
+    gap: 12px;
+}
+
+.sns-twitter-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2f3336;
+    /* Placeholder color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sns-twitter-names {
+    display: flex;
+    flex-direction: column;
+}
+
+.sns-twitter-displayname {
+    font-weight: 600;
+    font-size: 15px;
+    color: #e7e9ea;
+}
+
+.sns-twitter-username {
+    color: #71767b;
+    font-size: 15px;
+}
+
+.sns-twitter-content {
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.sns-twitter-photo {
+    background: rgba(127, 127, 127, 0.1);
+    border: 1px solid rgba(127, 127, 127, 0.2);
+    border-radius: 12px;
+    padding: 40px 20px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.sns-photo-placeholder {
+    color: rgba(127, 127, 127, 0.7);
+    font-size: 14px;
+    font-style: italic;
+}
+
+.sns-twitter-stats {
+    display: flex;
+    gap: 20px;
+    color: #71767b;
+    font-size: 13px;
+    margin-top: 0px;
+    padding-top: 8px;
+}
+
+.sns-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.sns-stat-item:hover {
+    color: #1d9bf0;
+}
+
+.sns-stat-item.sns-like:hover {
+    color: #f91880;
+}
+
+.sns-stat-item.sns-retweet:hover {
+    color: #00ba7c;
+}
+
+/* --- Twitter Quote RT Card --- */
+.sns-twitter-quote-card {
+    border: 1px solid rgba(47, 51, 54, 0.2);
+    border-radius: 16px;
+    margin-top: 12px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.sns-theme-dark .sns-twitter-quote-card {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sns-twitter-quote-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.sns-twitter-quote-avatar-small {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #cfd9de;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #536471;
+}
+
+.sns-theme-dark .sns-twitter-quote-avatar-small {
+    background: #333639;
+    color: #8b98a5;
+}
+
+.sns-twitter-quote-name {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.sns-twitter-quote-handle {
+    color: #536471;
+    font-size: 13px;
+}
+
+.sns-theme-dark .sns-twitter-quote-handle {
+    color: #8b98a5;
+}
+
+.sns-twitter-quote-content {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+/* Quote RT Internal Media */
+.sns-twitter-quote-card .sns-twitter-media-grid {
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+}
+
+.sns-twitter-quote-card .sns-twitter-media-item {
+    min-height: 100px !important;
+    max-height: 200px !important;
+    font-size: 12px !important;
+}
+
+.sns-twitter-quote-card .sns-media-placeholder {
+    font-size: 11px !important;
+    padding: 8px !important;
+    text-align: center !important;
+}
+
+/* --- Instagram Skin --- */
+/* --- Instagram Skin --- */
+.sns-skin-instagram {
+    background-color: #ffffff;
+    padding-bottom: 5px;
+    /* Spacing fix */
+    color: #000000;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.theme-dark .sns-skin-instagram {
+    background-color: #000000;
+    color: #f5f5f5;
+    border-color: #262626;
+}
+
+/* Force Light Mode Overrides */
+.sns-theme-light .sns-skin-instagram {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #dbdbdb !important;
+}
+
+/* Header */
+.sns-instagram-header {
+    display: flex;
+    align-items: center;
+    padding: 14px 12px;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+.sns-instagram-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    /* Instagram Story Gradient Ring */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    padding: 2px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.sns-instagram-avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 18px;
+    color: #262626;
+    font-weight: 600;
+}
+
+.sns-theme-dark .sns-instagram-avatar-inner {
+    background-color: #000;
+    color: #f5f5f5;
+}
+
+.sns-instagram-user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.sns-instagram-username {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: inherit;
+}
+
+.sns-instagram-location {
+    font-size: 12px;
+    line-height: 16px;
+    color: #262626;
+}
+
+.theme-dark .sns-instagram-location {
+    color: #f5f5f5;
+}
+
+.sns-instagram-more {
+    color: #262626;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.theme-dark .sns-instagram-more {
+    color: #f5f5f5;
+}
+
+
+/* Photo Area */
+.sns-instagram-photo-container {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.sns-instagram-photo-placeholder {
+    padding: 100px 0;
+    color: #8e8e8e;
+}
+
+.sns-instagram-photo-content {
+    width: 100%;
+    padding: 60px 40px;
+    /* Improved padding */
+    text-align: center;
+    font-size: 16px;
+    /* Reduced from 1.2em (~19px) */
+    line-height: 1.5;
+    color: #262626;
+}
+
+.theme-dark .sns-instagram-photo-content {
+    color: #f5f5f5;
+}
+
+.sns-theme-light .sns-instagram-photo-content {
+    color: #262626 !important;
+}
+
+/* Actions */
+.sns-instagram-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 12px 0 12px;
+    /* Bottom padding handled by likes margin */
+    margin-top: 4px;
+}
+
+.sns-instagram-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sns-instagram-actions-right {
+    display: flex;
+    align-items: center;
+}
+
+.action-icon {
+    font-size: 24px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.action-icon:hover {
+    opacity: 0.6;
+}
+
+/* Content Info */
+.sns-instagram-likes {
+    font-weight: 600;
+    font-size: 14px;
+    margin: 10px 12px 8px 12px;
+}
+
+.sns-instagram-caption {
+    margin: 0 12px 6px 12px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.sns-instagram-caption-user {
+    font-weight: 600;
+    margin-right: 6px;
+    float: left;
+    /* Inline-block effect */
+}
+
+.sns-instagram-caption-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.sns-instagram-view-comments {
+    margin: 0 12px 4px 12px;
+    font-size: 14px;
+    color: #8e8e8e;
+    cursor: pointer;
+}
+
+.theme-dark .sns-instagram-view-comments {
+    color: #a8a8a8;
+}
+
+.sns-instagram-date {
+    margin: 4px 12px 12px 12px;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #8e8e8e;
+    letter-spacing: 0.2px;
+}
+
+.theme-dark .sns-instagram-date {
+    color: #a8a8a8;
+}
+
+/* Comments Section Overrides */
+.sns-ig-comments-section {
+    margin: 0 12px 0 12px;
+    padding: 0 !important;
+}
+
+.sns-ig-comment {
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+}
+
+/* Sub-comment (reply) indentation - like real Instagram */
+.sns-ig-comment.sub-comment {
+    /* margin-left: 40px; */
+}
+
+.sns-ig-comment.sub-comment .sns-ig-comment-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+}
+
+.sns-ig-comment-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #efefef;
+    margin-right: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.theme-dark .sns-ig-comment-avatar {
+    background-color: #262626;
+}
+
+.sns-ig-comment-content {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.sns-ig-comment-user {
+    font-weight: 600;
+    margin-right: 6px;
+    float: left;
+}
+
+.sns-ig-comment-text {
+    word-break: break-word;
+}
+
+.sns-ig-comment-footer {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #8e8e8e;
+    font-weight: 600;
+    clear: both;
+}
+
+/* @mention blue color */
+.sns-ig-mention {
+    /* color: #0063c7; */
+    font-weight: 400;
+}
+
+.theme-dark .sns-ig-mention {
+    color: #e0f1ff;
+}
+
+.theme-dark .sns-ig-comment-footer {
+    color: #a8a8a8;
+}
+
+/* --- Light Mode Text Visibility Overrides --- */
+.sns-theme-light .sns-instagram-username,
+.sns-theme-light .sns-instagram-caption-user,
+.sns-theme-light .sns-instagram-caption-text,
+.sns-theme-light .sns-ig-comment-user,
+.sns-theme-light .sns-ig-comment-text,
+.sns-theme-light .sns-instagram-likes {
+    color: #262626 !important;
+}
+
+.sns-theme-light .sns-instagram-location,
+.sns-theme-light .sns-instagram-more,
+.sns-theme-light .sns-instagram-view-comments,
+.sns-theme-light .sns-instagram-date,
+.sns-theme-light .sns-ig-comment-time,
+.sns-theme-light .sns-ig-comment-reply,
+.sns-theme-light .sns-ig-comment-like,
+.sns-theme-light .sns-ig-comment-footer {
+    color: #8e8e8e !important;
+}
+
+.sns-theme-light .action-icon {
+    color: #262626 !important;
+}
+
+.sns-ig-comment-time,
+.sns-ig-comment-reply {
+    cursor: pointer;
+}
+
+.sns-ig-comment-like {
+    font-size: 12px;
+    color: #8e8e8e;
+    margin-top: 8px;
+    /* Align near top */
+    cursor: pointer;
+}
+
+.theme-dark .sns-ig-comment-like {
+    color: #a8a8a8;
+}
+
+/* --- YouTube Skin (Modern) --- */
+.sns-skin-youtube {
+    background-color: #0f0f0f;
+    /* Default semi-transparent dark */
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(127, 127, 127, 0.1);
+}
+
+.sns-theme-dark .sns-skin-youtube {
+    background-color: #0f0f0f;
+    /* Solid Dark */
+    border: 1px solid #2f2f2f;
+    color: #ffffff;
+}
+
+/* Video Page Layout */
+.sns-youtube-video-page {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 1. Video Player */
+.sns-youtube-player {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.sns-youtube-video-area {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 43px !important;
+    background: #1a1a1a;
+}
+
+.sns-youtube-video-description {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 90%;
+}
+
+/* Controls Bar */
+.sns-youtube-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: transparent;
+}
+
+.sns-yt-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 4px 8px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.sns-yt-btn:hover {
+    opacity: 1;
+}
+
+.sns-yt-time {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 80px;
+}
+
+/* Progress Bar */
+.sns-yt-progress-container {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.sns-yt-progress-bar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.sns-yt-progress-fill {
+    height: 100%;
+    background: #f00;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sns-yt-progress-handle {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.sns-yt-progress-handle::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #f00;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Most Viewed Tooltip */
+.sns-yt-most-viewed-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    z-index: 100;
+    max-width: 150px;
+    width: 10000%;
+}
+
+.sns-yt-most-viewed-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.95);
+}
+
+.sns-yt-tooltip-label {
+    font-size: 10px;
+    color: #ff6b6b;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.sns-yt-tooltip-text {
+    font-size: 12px;
+    max-width: 200px;
+    white-space: normal;
+    line-height: 1.4;
+    margin: 0 auto;
+}
+
+/* Tooltip hover/active state */
+.sns-yt-progress-handle:hover .sns-yt-most-viewed-tooltip,
+.sns-yt-progress-handle:active .sns-yt-most-viewed-tooltip,
+.sns-yt-progress-handle.active .sns-yt-most-viewed-tooltip {
+    opacity: 1;
+}
+
+/* Right Controls */
+.sns-yt-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+/* Top Controls (CC, Settings) */
+.sns-yt-top-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.sns-yt-top-controls .sns-yt-btn {
+    background: transparent;
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+/* Center Play Controls */
+.sns-yt-center-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.sns-yt-center-controls .sns-yt-btn {
+    font-size: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.sns-yt-center-controls .sns-yt-btn.sns-yt-next,
+.sns-yt-center-controls .sns-yt-btn.sns-yt-prev {
+    transform: translateY(2px);
+}
+
+.sns-yt-center-controls .sns-yt-btn i {
+    font-size: 20px !important;
+}
+
+.sns-yt-center-controls .sns-yt-play-main {
+    font-size: 40px;
+    opacity: 1;
+    background: transparent;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+}
+
+.sns-yt-center-controls .sns-yt-play-main i {
+    font-size: 36px !important;
+}
+
+/* .sns-yt-center-controls .sns-yt-play-main:hover {
+    background: rgba(255, 255, 255, 0.2);
+} */
+
+/* Video Area with relative positioning */
+.sns-youtube-video-area {
+    position: relative;
+}
+
+/* Description Modal - Simple, inline style */
+.sns-yt-description-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.sns-yt-modal-overlay {
+    display: none;
+}
+
+.sns-yt-modal-content {
+    position: relative;
+    background: transparent;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+}
+
+.sns-yt-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.sns-yt-modal-close {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.sns-yt-modal-close:hover {
+    color: #fff;
+}
+
+.sns-yt-modal-body {
+    padding: 8px 12px 16px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.sns-yt-modal-body pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Pretendard', 'Pretendard JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif !important;
+}
+
+/* 2. Video Info */
+.sns-youtube-video-info {
+    padding: 0 4px;
+}
+
+.sns-youtube-video-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    color: var(--SmartThemeBodyColor);
+    /* Multi-line clamp */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sns-youtube-channel-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.sns-youtube-channel-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.sns-youtube-channel-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sns-youtube-channel-text .channel-name {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.sns-youtube-channel-text .sub-count {
+    font-size: 12px;
+    color: #aaaaaa !important;
+}
+
+.theme-dark .sns-youtube-channel-text .sub-count {
+    color: #aaaaaa !important;
+}
+
+.sns-subscribe-btn {
+    background-color: var(--SmartThemeBodyColor);
+    color: var(--sns-modal-bg);
+    /* Inverted for contrast approx */
+    /* Usually Black button white text in light mode, White button black text in dark mode */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.sns-theme-dark .sns-subscribe-btn,
+.theme-dark .sns-subscribe-btn {
+    background-color: #fff !important;
+    color: #0f0f0f !important;
+}
+
+.sns-theme-light .sns-subscribe-btn {
+    background-color: #0f0f0f !important;
+    color: #fff !important;
+}
+
+/* 3. Comments Section */
+.sns-youtube-comments-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 2px 4px 16px 4px;
+}
+
+.sns-youtube-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Comment Item */
+.sns-youtube-comment {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.sns-youtube-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #777;
+    /* Neutral Grey */
+    color: #fff;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.sns-youtube-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sns-youtube-header {
+    font-size: 13px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.sns-youtube-username {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--SmartThemeBodyColor);
+}
+
+.sns-theme-dark .sns-youtube-username {
+    color: #ffffff !important;
+}
+
+.sns-youtube-time {
+    color: #aaaaaa !important;
+    font-size: 12px;
+}
+
+.theme-dark .sns-youtube-time {
+    color: #aaaaaa !important;
+}
+
+.sns-youtube-text {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 2px;
+    color: var(--sns-text) !important;
+}
+
+/* Timestamp highlighting in YouTube comments */
+.sns-timestamp {
+    color: #3ea6ff;
+    cursor: pointer;
+}
+
+.sns-youtube-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.sns-youtube-actions i {
+    font-size: 16px;
+    /* Icons slightly bigger */
+    cursor: pointer;
+}
+
+.sns-youtube-actions span {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* --- Sub Comments / Replies --- */
+.yt-replies {
+    /* Indentation handled by padding-left in JS or here */
+    padding-left: 30px !important;
+    margin-top: 4px;
+    /* Reduced from 8px */
+    padding-bottom: 0 !important;
+    border-left: none !important;
+    /* Ensure no border */
+}
+
+/* Fix "Line too long" issue by removing bottom padding from container */
+.sns-accordion-content.yt-replies {
+    padding-bottom: 0 !important;
+}
+
+.sns-youtube-comment.sub-comment .sns-youtube-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
+
+.sns-youtube-comment.sub-comment .sns-youtube-username {
+    font-size: 12px;
+}
+
+
+
+/* Action Buttons Unification */
+.sns-youtube-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #fff;
+    /* Default Dark Mode White */
+}
+
+.sns-youtube-actions i {
+    cursor: pointer;
+}
+
+.sns-youtube-action-count {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Light Mode Override */
+.sns-theme-light .sns-youtube-actions {
+    color: #0f0f0f !important;
+}
+
+/* Fix "Line too long" issue by removing bottom padding from container */
+.sns-accordion-content.yt-replies {
+    padding-bottom: 0 !important;
+}
+
+/* --- YouTube Light Mode Overrides --- */
+.sns-theme-light .sns-skin-youtube {
+    background-color: #ffffff !important;
+    color: #0f0f0f !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+.sns-theme-light .sns-youtube-video-title,
+.sns-theme-light .sns-youtube-username,
+.sns-theme-light .sns-youtube-channel-text .channel-name,
+.sns-theme-light .sns-youtube-comments-header {
+    color: #0f0f0f !important;
+}
+
+.sns-theme-light .sns-youtube-time,
+.sns-theme-light .sns-youtube-channel-text .sub-count {
+    color: #959595 !important;
+}
+
+/* Force comment text to be black-ish for readability, not full grey */
+.sns-theme-light .sns-youtube-text {
+    color: #222 !important;
+}
+
+/* --- Modal Styles --- */
+.sns-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.sns-modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sns-modal {
+    background-color: var(--sns-modal-bg);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    transition: transform 0.2s;
+}
+
+.sns-modal-overlay.open .sns-modal {
+    transform: translateY(0);
+}
+
+.sns-modal-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--SmartThemeBorderColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.sns-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--sns-text);
+    padding: 4px;
+}
+
+.sns-modal-body {
+    padding: 16px;
+    overflow-y: auto;
+}
+
+/* --- Controls --- */
+.sns-generate-btn {
+    background: transparent;
+    border: 1px solid var(--sns-border);
+    color: var(--sns-text);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.7;
+}
+
+.sns-generate-btn:hover {
+    background: var(--sns-border);
+    opacity: 1;
+}
+
+/* --- New Header & Expandable Layout (Refined) --- */
+.sns-reaction-wrapper {
+    margin: 12px auto;
+    width: 90%;
+    max-width: 600px;
+    background-color: transparent;
+}
+
+/* Mobile responsive width override */
+@media (max-width: 600px) {
+    .sns-reaction-wrapper {
+        width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+.sns-header-bar {
+    background-color: transparent;
+    user-select: none;
+    opacity: 1;
+}
+
+.sns-header-title {
+    font-weight: 600;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--sns-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sns-chevron {
+    font-size: 0.8em;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Controls */
+.sns-header-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.sns-header-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--sns-text);
+    opacity: 0.5;
+    transition: all 0.2s;
+    font-size: 0.95em;
+    padding: 4px;
+}
+
+.sns-header-btn:hover {
+    opacity: 1;
+    transform: rotate(15deg);
+    /* Slight playfulness for regenerate */
+}
+
+
+/* Body Animation */
+.sns-body {
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 5000px;
+    overflow: auto;
+}
+
+.sns-body.collapsed {
+    max-height: 0;
+}
+
+.sns-reaction-wrapper.collapsed .sns-chevron {
+    transform: rotate(-90deg);
+}
+
+.sns-reaction-wrapper.collapsed .sns-header-bar {
+    border-bottom: none;
+    /* Clean when collapsed */
+}
+
+/* --- Accordion Content (Replies/Quotes) --- */
+.sns-accordion-content {
+    display: none;
+    background-color: transparent;
+    /* No more white background */
+    padding: 5px 0 10px 0;
+    margin-top: 5px;
+}
+
+.sns-accordion-content.open {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Distinct Styles for Replies vs Quotes */
+.sns-reply-section .sns-sub-item {
+    border-left: 3px solid #1d9bf0;
+    /* Twitter Blue */
+    background: linear-gradient(90deg, rgba(29, 155, 240, 0.05) 0%, transparent 100%);
+}
+
+.sns-quote-section .sns-sub-item {
+    border-left: 3px solid #00ba7c;
+    /* Twitter Green */
+    background: linear-gradient(90deg, rgba(0, 186, 124, 0.05) 0%, transparent 100%);
+}
+
+/* Separator between replies and quotes sections (only when both are open) */
+.sns-reply-section.open~.sns-quote-section.with-separator.open {
+    border-top: 1px solid rgba(127, 127, 127, 0.15);
+    margin-top: 2px;
+    padding-top: 4px;
+}
+
+.sns-theme-dark .sns-reply-section.open~.sns-quote-section.with-separator.open {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sns-sub-item {
+    padding: 8px 15px;
+    margin-top: 8px;
+    margin-left: 10px;
+    /* Indent from main post */
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9em;
+}
+
+/* Fix Text color inside Dark Skins (Twitter) */
+.sns-skin-twitter .sns-sub-header,
+.sns-skin-twitter .sns-sub-body {
+    color: #e7e9ea !important;
+    /* Force light text */
+}
+
+.sns-sub-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    color: var(--grey50);
+    /* Subtler header */
+    font-size: 0.85em;
+}
+
+.sns-sub-header.quote-header {
+    color: #00ba7c;
+}
+
+.sns-sub-handle {
+    opacity: 0.6;
+    font-weight: 400;
+}
+
+.sns-sub-body {
+    color: var(--sns-text);
+    line-height: 1.4;
+}
+
+/* Generate Button Polish */
+.sns-generate-btn {
+    border: 1px dashed var(--SmartThemeBorderColor);
+    /* More technical/placeholder look */
+    background: rgba(0, 0, 0, 0.05);
+    width: 90%;
+    /* Center width */
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    margin: 10px auto;
+    /* Center */
+}
+
+.sns-generate-btn:hover {
+    border-style: solid;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust stat items to look actionable */
+.sns-stat-item.interactive {
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.sns-stat-item.interactive:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sns-stat-item.active-toggle {
+    color: var(--sns-accent);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Theme Overrides --- */
+
+/* Force Dark Mode */
+.sns-theme-dark .sns-skin-twitter {
+    background-color: #000000 !important;
+    color: #e7e9ea !important;
+    border-color: #2f3336 !important;
+}
+
+/* Header colors should match Global Theme, not Card Theme, because they are on Global Background */
+/* .sns-theme-dark .sns-header-title... removed */
+
+.sns-theme-dark .sns-sub-header,
+.sns-theme-dark .sns-sub-body {
+    color: #e7e9ea !important;
+}
+
+
+/* Force Light Mode */
+.sns-theme-light .sns-skin-twitter {
+    background-color: #ffffff !important;
+    color: #0f1419 !important;
+    border-color: #cfd9de !important;
+}
+
+/* Header colors should match Global Theme */
+/* .sns-theme-light .sns-header-title... removed */
+
+.sns-theme-light .sns-sub-header {
+    color: #536471 !important;
+}
+
+.sns-theme-light .sns-sub-body {
+    color: #0f1419 !important;
+}
+
+.sns-theme-light .sns-twitter-username,
+.sns-theme-light .sns-twitter-stats {
+    color: #536471 !important;
+}
+
+.sns-theme-light .sns-twitter-displayname {
+    color: #0f1419 !important;
+}
+
+
+/* --- YouTube Extras --- */
+
+.active-ready {
+    color: var(--sns-accent);
+    /* Visual cue that it's clickable */
+}
+
+.sns-youtube-avatar.small {
+    background-color: #aa66cc;
+    /* Random color for replies */
+    font-size: 10px;
+}
+
+.sns-youtube-comment.sub-comment {
+    margin-bottom: 12px;
+}
+
+/* --- Advanced Header Controls --- */
+.sns-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.sns-header-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: inherit;
+    cursor: pointer;
+    padding: 4px 8px;
+    /* Increased padding */
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-size: 13px;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    /* Changed from width to min-width */
+    height: 28px;
+}
+
+/* Specific fix for labeled buttons in initial selector */
+.sns-platform-selector-initial .sns-header-btn {
+    width: auto;
+    gap: 6px;
+}
+
+.sns-header-btn:hover {
+    background: rgba(127, 127, 127, 0.15);
+    opacity: 1;
+}
+
+.sns-header-btn:active {
+    background: rgba(127, 127, 127, 0.25);
+    transform: translateY(1px);
+}
+
+.sns-page-indicator {
+    font-size: 11px;
+    opacity: 0.9;
+    background: rgba(127, 127, 127, 0.2);
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+    min-width: 24px;
+    text-align: center;
+}
+
+.sns-divider-vert {
+    width: 1px;
+    height: 18px;
+    background: rgba(127, 127, 127, 0.3);
+    margin: 0 4px;
+}
+
+.sns-header-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+}
+
+.sns-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+/* Edit Mode */
+.sns-edit-textarea {
+    width: 100%;
+    min-height: 350px;
+    background: rgba(0, 0, 0, 0.2);
+    color: inherit;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    padding: 10px;
+    font-size: 13px;
+    resize: vertical;
+    border-radius: 8px;
+}
+
+.sns-edit-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.sns-edit-btn {
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent !important;
+    cursor: pointer;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 50px;
+}
+
+/* 취소 버튼 - 다크모드 기본 */
+.sns-edit-btn:not(.save) {
+    background: rgba(127, 127, 127, 0.15) !important;
+    border-color: rgba(127, 127, 127, 0.3) !important;
+    color: inherit !important;
+}
+
+.sns-edit-btn:not(.save):hover {
+    background: rgba(127, 127, 127, 0.25) !important;
+    border-color: rgba(127, 127, 127, 0.5) !important;
+}
+
+.sns-edit-btn:not(.save):active {
+    transform: translateY(1px) !important;
+}
+
+.sns-edit-btn.save {
+    background: rgba(76, 175, 80, 0.9) !important;
+    color: white !important;
+    border-color: rgba(76, 175, 80, 0.8) !important;
+}
+
+.sns-edit-btn.save:hover {
+    background: rgba(67, 160, 71, 1) !important;
+    border-color: rgba(67, 160, 71, 1) !important;
+}
+
+.sns-edit-btn.save:active {
+    transform: translateY(1px) !important;
+    background: rgba(56, 142, 60, 1) !important;
+}
+
+/* 라이트 모드 오버라이드 */
+.sns-theme-light .sns-edit-btn:not(.save) {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+    color: #0f1419 !important;
+}
+
+.sns-theme-light .sns-edit-btn:not(.save):hover {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 다크 모드 오버라이드 */
+.sns-theme-dark .sns-edit-btn:not(.save) {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #e7e9ea !important;
+}
+
+.sns-theme-dark .sns-edit-btn:not(.save):hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* --- Settings Platform Tabs --- */
+.sns-platform-tab.menu_button {
+    background: transparent;
+    opacity: 0.5;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    color: inherit;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sns-platform-tab.menu_button i {
+    margin-right: 4px;
+    margin-top: 2px;
+    font-size: 12px !important;
+}
+
+.sns-platform-tab.menu_button:hover {
+    opacity: 0.8;
+    background: rgba(127, 127, 127, 0.1);
+}
+
+.sns-platform-tab.menu_button_checked {
+    opacity: 1;
+    border-color: #1d9bf0 !important;
+    background: rgba(29, 155, 240, 0.1) !important;
+}
+
+#sns_settings_content .sns-platform-tab.menu_button_checked i,
+#sns_settings_content .sns-platform-tab.menu_button_checked span {
+    color: #1d9bf0 !important;
+}
+
+.sns-platform-tab.menu_button_checked[data-platform="instagram"] {
+    border-color: #e1306c !important;
+    color: #e1306c !important;
+    background: rgba(225, 48, 108, 0.1) !important;
+}
+
+#sns_settings_content .sns-platform-tab.menu_button_checked[data-platform="instagram"] i,
+#sns_settings_content .sns-platform-tab.menu_button_checked[data-platform="instagram"] span {
+    color: #e1306c !important;
+}
+
+.sns-platform-tab.menu_button_checked[data-platform="youtube"] {
+    border-color: #ff0000 !important;
+    color: #ff0000 !important;
+    background: rgba(255, 0, 0, 0.1) !important;
+}
+
+#sns_settings_content .sns-platform-tab.menu_button_checked[data-platform="youtube"] i,
+#sns_settings_content .sns-platform-tab.menu_button_checked[data-platform="youtube"] span {
+    color: #ff0000 !important;
+}
+
+.sns-platform-tab.menu_button_checked[data-platform="everytime"] {
+    border-color: #E73F18 !important;
+    color: #E73F18 !important;
+    background: rgba(231, 63, 24, 0.1) !important;
+}
+
+#sns_settings_content .sns-platform-tab.menu_button_checked[data-platform="everytime"] i,
+#sns_settings_content .sns-platform-tab.menu_button_checked[data-platform="everytime"] span {
+    color: #E73F18 !important;
+}
+
+#sns_save_preset,
+#sns_delete_preset,
+#sns_save_all_presets {
+    width: auto;
+    height: 28px;
+}
+
+#sns_delete_preset {
+    width: 28px;
+}
+
+#sns_save_preset i,
+#sns_save_all_presets i,
+#sns_delete_preset i {
+    font-size: 12px !important;
+}
+
+#sns_save_preset i,
+#sns_save_all_presets i {
+    margin-right: 4px;
+    margin-top: 4px;
+}
+
+/* --- Dropdown Menu --- */
+.sns-menu-container {
+    position: relative;
+}
+
+.sns-menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    z-index: 9999;
+    margin-top: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Fix border radius with children */
+    /* Default Fallback (Dark Solid) if no theme class */
+    background: #15181c !important;
+    border: 1px solid #2f3336 !important;
+    color: #e7e9ea !important;
+}
+
+.sns-menu-dropdown.fixed-open {
+    position: fixed;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin-top: 0;
+}
+
+/* Light Theme Menu Override */
+.sns-theme-light .sns-menu-dropdown,
+#sns-global-menu.sns-theme-light {
+    background: #ffffff !important;
+    border: 1px solid #d9d9d9 !important;
+    color: #0f1419 !important;
+}
+
+.sns-theme-light .sns-menu-section,
+#sns-global-menu.sns-theme-light .sns-menu-section {
+    border-bottom: 1px solid #eff3f4 !important;
+}
+
+.sns-theme-light .sns-menu-item:hover,
+.sns-theme-light .sns-radio-option:hover,
+#sns-global-menu.sns-theme-light .sns-menu-item:hover,
+#sns-global-menu.sns-theme-light .sns-radio-option:hover {
+    background: #f7f9f9 !important;
+}
+
+#sns-global-menu.sns-theme-light .sns-menu-label {
+    color: #536471 !important;
+}
+
+#sns-global-menu.sns-theme-light .sns-menu-select {
+    background: #ffffff !important;
+    border: 1px solid #cfd9de !important;
+    color: #0f1419 !important;
+}
+
+.sns-theme-light .sns-menu-section {
+    border-bottom: 1px solid #eff3f4 !important;
+
+}
+
+.sns-theme-light .sns-menu-item:hover,
+.sns-theme-light .sns-radio-option:hover {
+    background: #f7f9f9 !important;
+}
+
+/* Dark Theme Menu Override */
+.sns-theme-dark .sns-menu-dropdown {
+    background: #15181c !important;
+    border: 1px solid #2f3336 !important;
+    color: #e7e9ea !important;
+}
+
+.sns-theme-dark .sns-menu-section {
+    border-bottom: 1px solid #2f3336 !important;
+}
+
+.sns-theme-dark .sns-menu-item:hover,
+.sns-theme-dark .sns-radio-option:hover {
+    background: #1e2124 !important;
+}
+
+.sns-menu-dropdown.open {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.sns-menu-section {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.sns-menu-section:last-child {
+    border-bottom: none;
+}
+
+.sns-menu-label {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sns-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 13px;
+    color: inherit;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+}
+
+.sns-menu-item:hover {
+    background: rgba(127, 127, 127, 0.15);
+}
+
+.sns-menu-item.danger {
+    color: #ff4444;
+}
+
+.sns-menu-item.danger:hover {
+    background: rgba(255, 68, 68, 0.1);
+}
+
+.sns-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sns-radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 4px 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.sns-radio-option:hover {
+    opacity: 1;
+}
+
+.sns-radio-option.active {
+    opacity: 1;
+    color: #1d9bf0;
+    font-weight: 600;
+}
+
+.sns-radio-option.instagram.active {
+    color: #E12F6C !important;
+    border-color: #E12F6C !important;
+    background-color: rgba(225, 48, 108, 0.1);
+}
+
+.sns-radio-option.youtube.active {
+    color: #FF0000 !important;
+    border-color: #FF0000 !important;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.sns-radio-option.everytime.active {
+    color: #c62917 !important;
+    border-color: #c62917 !important;
+    background-color: rgba(198, 41, 23, 0.1);
+}
+
+/* Menu Inputs */
+.sns-menu-input {
+    width: 60px;
+    background: transparent;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    border-radius: 4px;
+    color: inherit;
+    padding: 2px 4px;
+    font-size: 13px;
+    text-align: right;
+}
+
+.sns-menu-select {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    border-radius: 4px;
+    color: inherit;
+    padding: 2px 4px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sns-theme-light .sns-menu-input,
+.sns-theme-light .sns-menu-select {
+    border-color: #d9d9d9;
+    background: #f7f9f9;
+}
+
+.sns-theme-dark .sns-menu-input,
+.sns-theme-dark .sns-menu-select {
+    border-color: #2f3336;
+    background: #000000;
+}
+
+/* Language Select in Dropdown Menu */
+.sns-menu-lang-select {
+    width: 80px !important;
+    background: transparent !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    color: inherit !important;
+    padding: 2px 4px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+}
+
+.sns-menu-lang-select option {
+    background: inherit !important;
+    color: inherit !important;
+}
+
+.sns-theme-light .sns-menu-lang-select,
+.sns-theme-light .sns-menu-lang-select option {
+    border-color: #ccc !important;
+    background: #ffffff !important;
+    color: #000 !important;
+}
+
+.sns-theme-dark .sns-menu-lang-select,
+.sns-theme-dark .sns-menu-lang-select option {
+    border-color: #5f6368 !important;
+    background: #202124 !important;
+    color: #eeeeee !important;
+}
+
+/* ====== Start Config UI ====== */
+.sns-start-config {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    border: 1px dashed var(--sns-border);
+    border-radius: 12px;
+    background: rgba(127, 127, 127, 0.05);
+    max-width: 400px;
+    margin: 12px auto;
+}
+
+.sns-start-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sns-start-platforms {
+    display: flex;
+    gap: 6px;
+}
+
+.sns-start-platform-btn {
+    background: transparent;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    color: inherit;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.sns-start-platform-btn i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sns-start-platform-btn:hover {
+    opacity: 0.8;
+    background: rgba(127, 127, 127, 0.1);
+}
+
+.sns-start-platform-btn.active {
+    opacity: 1;
+    border-color: #1d9bf0;
+    color: #1d9bf0;
+    background: rgba(29, 155, 240, 0.1);
+}
+
+.sns-start-platform-btn[data-platform="instagram"].active {
+    border-color: #e1306c;
+    color: #e1306c;
+    background: rgba(225, 48, 108, 0.1);
+}
+
+.sns-start-platform-btn[data-platform="youtube"].active {
+    border-color: #ff0000;
+    color: #ff0000;
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.sns-start-platform-btn[data-platform="everytime"].active {
+    border-color: #E73F18;
+    color: #E73F18;
+    background: rgba(231, 63, 24, 0.1);
+}
+
+.sns-start-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sns-start-count label {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.sns-start-count-input {
+    width: 50px;
+    background: transparent;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    border-radius: 4px;
+    color: inherit;
+    padding: 4px 6px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.sns-start-preset-select {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    border-radius: 4px;
+    color: inherit;
+    padding: 4px 8px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Start Config Language Select */
+.sns-start-lang-select {
+    background: #ffffff !important;
+    border: 1px solid rgba(127, 127, 127, 0.3) !important;
+    border-radius: 4px !important;
+    color: #000000 !important;
+    padding: 4px 8px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+}
+
+.sns-theme-dark .sns-start-lang-select {
+    background: #202124 !important;
+    border-color: #5f6368 !important;
+    color: #eeeeee !important;
+}
+
+.sns-start-config .sns-start-lang-select option,
+.sns-start-config .sns-start-preset-select option,
+select.sns-start-lang-select option,
+select.sns-start-preset-select option {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+.sns-theme-dark .sns-start-config .sns-start-lang-select option,
+.sns-theme-dark .sns-start-config .sns-start-preset-select option,
+.sns-theme-dark select.sns-start-lang-select option,
+.sns-theme-dark select.sns-start-preset-select option {
+    background: #202124 !important;
+    color: #eeeeee !important;
+}
+
+.sns-start-generate-btn {
+    margin-top: 5px;
+}
+
+/* Loading Overlay */
+.sns-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.sns-header-btn.sns-loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* --- Twitter Media Grid --- */
+.sns-twitter-media-grid {
+    display: grid;
+    gap: 2px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 10px 0;
+    max-height: 300px;
+}
+
+.sns-twitter-media-grid.single {
+    grid-template-columns: 1fr;
+}
+
+.sns-twitter-media-grid.double {
+    grid-template-columns: 1fr 1fr;
+}
+
+.sns-twitter-media-grid.triple {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.sns-twitter-media-grid.triple .sns-twitter-media-item:first-child {
+    grid-row: span 2;
+}
+
+.sns-twitter-media-grid.quad {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.sns-twitter-media-item {
+    background-color: var(--sns-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.sns-twitter-media-item:hover {
+    filter: brightness(0.9);
+}
+
+.sns-twitter-media-grid.single .sns-twitter-media-item {
+    min-height: 150px;
+}
+
+.sns-media-placeholder {
+    color: var(--grey70);
+    font-size: 13px;
+    text-align: center;
+    padding: 12px;
+    line-height: 1.4;
+}
+
+.sns-twitter-media-grid.single .sns-media-placeholder {
+    font-style: italic;
+    max-width: calc(100% - 20px);
+}
+
+.sns-twitter-media-grid:not(.single) .sns-media-placeholder {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--sns-text);
+}
+
+.sns-media-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 12px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.sns-twitter-media-item.active {
+    outline: 2px solid var(--sns-accent);
+    outline-offset: -2px;
+}
+
+.sns-media-modal {
+    background: var(--sns-modal-bg);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    position: relative;
+    animation: fadeIn 0.2s ease;
+}
+
+.sns-media-modal-content {
+    color: var(--SmartThemeBodyColor);
+    font-size: 14px;
+    line-height: 1.5;
+    padding-right: 24px;
+}
+
+.sns-media-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--grey70);
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sns-media-modal-close:hover {
+    color: var(--SmartThemeBodyColor);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Instagram Skin --- */
+.sns-skin-instagram {
+    background-color: var(--sns-bg);
+    color: var(--sns-text);
+    border-radius: 12px;
+    margin: 0 auto 16px auto;
+    max-width: 380px;
+    border: 1px solid var(--sns-border);
+    overflow: hidden;
+}
+
+.sns-instagram-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    gap: 10px;
+    border-bottom: 1px solid var(--sns-border);
+}
+
+.sns-instagram-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    padding: 2px;
+    flex-shrink: 0;
+}
+
+.sns-instagram-avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--sns-modal-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.sns-instagram-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.sns-instagram-username {
+    font-weight: 600 !important;
+    font-size: 14px;
+    color: var(--sns-text);
+}
+
+.sns-instagram-location {
+    font-size: 12px;
+    color: var(--grey70);
+}
+
+.sns-instagram-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--sns-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sns-instagram-photo-placeholder {
+    color: var(--grey70);
+    font-size: 14px;
+    text-align: center;
+    padding: 24px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.sns-instagram-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 14px 8px;
+}
+
+.sns-instagram-actions i {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 22px;
+    color: var(--sns-text);
+}
+
+.sns-instagram-actions i:hover {
+    opacity: 0.6;
+    transform: scale(1.1);
+}
+
+.sns-instagram-actions i.fa-heart:hover {
+    color: #ed4956;
+}
+
+.sns-instagram-likes {
+    padding: 0 14px 8px;
+    font-weight: 600 !important;
+    font-size: 14px;
+    color: var(--sns-text);
+}
+
+.sns-instagram-caption {
+    padding: 0 14px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.sns-instagram-caption-user {
+    font-weight: 900 !important;
+    margin-right: 6px;
+    color: var(--sns-text);
+}
+
+.sns-instagram-caption-text {
+    color: var(--sns-text);
+    word-break: break-word;
+}
+
+.sns-instagram-view-comments {
+    padding: 4px 14px 14px;
+    color: var(--grey70);
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.sns-instagram-view-comments:hover {
+    color: var(--sns-text);
+}
+
+.sns-ig-comments-section {
+    padding: 0 14px 14px;
+    display: none;
+    border-top: 1px solid var(--sns-border);
+    margin-top: 4px;
+    padding-top: 7px !important;
+}
+
+.sns-ig-comments-section.expanded {
+    display: block;
+}
+
+.sns-ig-comment {
+    padding: 8px 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.sns-ig-comment-user {
+    font-weight: 900 !important;
+    color: var(--sns-text);
+    flex-shrink: 0;
+}
+
+.sns-ig-comment-text {
+    color: var(--sns-text);
+    word-break: break-word;
+}
+
+/* --- Twitter Media Grid Layout --- */
+.sns-twitter-media-grid {
+    margin: 10px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    border: 1px solid var(--sns-border);
+}
+
+.sns-twitter-media-item {
+    background-color: #cfd9de;
+    /* Twitter default media placeholder color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    min-height: 150px;
+    background-size: cover;
+    background-position: center;
+    flex-grow: 1;
+}
+
+.theme-dark .sns-twitter-media-item {
+    background-color: #333639;
+}
+
+.sns-twitter-media-item:hover {
+    filter: brightness(0.95);
+}
+
+.sns-twitter-media-item .sns-media-placeholder {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    padding: 8px 12px;
+    backdrop-filter: blur(2px);
+    padding: 10px;
+    text-align: center;
+    z-index: 2;
+}
+
+.sns-twitter-media-item .sns-media-icon {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    z-index: 2;
+}
+
+/* Layout Variants */
+.sns-twitter-media-grid.single .sns-twitter-media-item {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.sns-twitter-media-grid.double .sns-twitter-media-item {
+    width: calc(50% - 1px);
+    aspect-ratio: 8/9;
+}
+
+.sns-twitter-media-grid.triple .sns-twitter-media-item:first-child {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.sns-twitter-media-grid.triple .sns-twitter-media-item:not(:first-child) {
+    width: calc(50% - 1px);
+    aspect-ratio: 16/9;
+    /* Shorter for bottom row */
+}
+
+.sns-twitter-media-grid.quad .sns-twitter-media-item {
+    width: calc(50% - 1px);
+    aspect-ratio: 16/9;
+}
+
+/* Selected/Active State for description view */
+.sns-twitter-media-item.active {
+    /* box-shadow: inset 0 0 0 4px var(--sns-quote-bg); */
+}
+
+/* Media Description Modal (Inline) */
+.sns-media-modal {
+    background: var(--sns-modal-bg);
+    border: 1px solid var(--sns-border);
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 8px;
+    position: relative;
+    animation: fadeIn 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.sns-media-modal-content {
+    font-size: 14px;
+    color: var(--sns-text);
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.sns-media-modal-close {
+    background: none;
+    border: none;
+    color: var(--sns-text);
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 0 0 0 10px;
+}
+
+.sns-media-modal-close:hover {
+    opacity: 1;
+}
+
+/* --- Quote RT Card --- */
+.sns-twitter-quote-card {
+    border: 1px solid var(--sns-border);
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sns-twitter-quote-card:hover {
+    background-color: rgba(128, 128, 128, 0.05);
+}
+
+.sns-twitter-quote-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px 4px;
+    font-size: 13px;
+}
+
+.sns-twitter-quote-avatar-small {
+    width: 20px;
+    height: 20px;
+    background-color: var(--grey30);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--grey70);
+}
+
+.sns-twitter-quote-name {
+    font-weight: 600;
+    color: var(--sns-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sns-twitter-quote-handle {
+    color: var(--grey70);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+}
+
+.sns-twitter-quote-content {
+    padding: 4px 12px 6px;
+    font-size: 14px;
+    color: var(--sns-text);
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* --- YouTube Video Page Layout --- */
+.sns-platform-youtube {
+    background-color: transparent;
+    /* Container is transparent */
+}
+
+.sns-youtube-video-page {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sns-youtube-player-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 48px;
+    margin-bottom: 4px;
+}
+
+.sns-youtube-video-info {
+    padding: 0 4px;
+}
+
+.sns-youtube-video-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--sns-text);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.sns-youtube-channel-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sns-border);
+}
+
+.sns-youtube-channel-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.sns-youtube-channel-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sns-youtube-channel-text .channel-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--sns-text);
+}
+
+.sns-youtube-channel-text .sub-count {
+    font-size: 12px;
+    color: var(--grey70);
+}
+
+.sns-subscribe-btn {
+    background-color: var(--sns-text);
+    color: var(--sns-bg);
+    border: none;
+    border-radius: 18px;
+    padding: 6px 14px;
+    font-size: 13px !important;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.theme-dark .sns-subscribe-btn {
+    background-color: #fff;
+    color: #0f0f0f;
+}
+
+.sns-youtube-comments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding: 0 4px;
+}
+
+/* Sub-comment indentations */
+.sns-sub-item.sub-reply {
+    margin-left: 30px;
+    border-left: 3px solid rgba(29, 155, 240, 0.3);
+}
+
+.sns-ig-comment.sub-comment {
+    padding-left: 40px;
+    /* Indent avatar */
+    position: relative;
+    /* maybe add connecting line? */
+}
+
+.sns-youtube-comment.nested-reply {
+    margin-left: 20px;
+    /* Double indent if it was already in reply section? */
+    border-left: 2px solid rgba(127, 127, 127, 0.2);
+    padding-left: 10px;
+}
+
+.sns-youtube-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Adjust render items slightly for inside the list */
+.sns-youtube-comments-list .sns-skin-youtube {
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Carousel Layout --- */
+.sns-carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.sns-carousel-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 0 0 12px 0;
+    scroll-behavior: smooth;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sns-carousel-wrapper::-webkit-scrollbar {
+    height: 6px;
+    display: none;
+}
+
+/* Fixed Height for Instagram Cards within Carousel */
+.sns-carousel-wrapper .sns-skin-instagram {
+    height: 700px;
+    /* Fixed height as requested */
+    overflow-y: auto;
+    /* Scroll the whole card content */
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    position: relative;
+    border-radius: 8px;
+    /* Ensure corners match */
+    /* Override for carousel - keep original sizing, adjust margins */
+    margin: 0;
+    scroll-snap-align: center;
+}
+
+.sns-carousel-wrapper .sns-skin-instagram:first-child {
+    margin-left: calc((100% - 380px) / 2);
+}
+
+.sns-carousel-wrapper .sns-skin-instagram:last-child {
+    margin-right: calc((100% - 380px) / 2);
+}
+
+/* Sticky Header */
+.sns-carousel-wrapper .sns-skin-instagram .sns-instagram-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: inherit;
+    /* Match card background properly */
+    border-bottom: 1px solid rgba(127, 127, 127, 0.1);
+}
+
+/* Scrollbar Styling - Hidden as requested */
+.sns-carousel-wrapper .sns-skin-instagram {
+    scrollbar-width: none !important;
+    /* Firefox */
+    -ms-overflow-style: none !important;
+    /* IE/Edge */
+}
+
+.sns-carousel-wrapper .sns-skin-instagram::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background: transparent;
+}
+
+/* Scroll Hint Button */
+.sns-scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 20;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s, transform 0.2s;
+    animation: bounceHint 2s infinite;
+}
+
+.sns-scroll-hint:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+@keyframes bounceHint {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-3px);
+    }
+}
+
+/* REMOVED .sns-instagram-content rule as it does not exist in template */
+
+.sns-carousel-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--sns-border);
+    border-radius: 3px;
+}
+
+.sns-carousel-wrapper>div {
+    flex: 0 0 80%;
+    width: 80%;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+}
+
+/* Center first and last slides */
+.sns-carousel-wrapper>div:first-child {
+    margin-left: 10%;
+}
+
+.sns-carousel-wrapper>div:last-child {
+    margin-right: 10%;
+}
+
+.sns-injection-point {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Nav Buttons */
+.sns-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    opacity: 0.8;
+    font-size: 16px;
+}
+
+.sns-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.sns-nav-btn.prev {
+    left: calc(10% - 48px);
+}
+
+.sns-nav-btn.next {
+    right: calc(10% - 48px);
+}
+
+/* Hide nav buttons when disabled (at first/last slide) */
+.sns-nav-btn:disabled {
+    display: none;
+}
+
+/* Mobile: nav buttons at bottom center */
+@media screen and (max-width: 1000px) {
+    .sns-nav-btn {
+        top: auto;
+        bottom: -30px;
+        transform: none;
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        background: rgba(127, 127, 127, 0.2);
+        border: 1px solid rgba(127, 127, 127, 0.3);
+        opacity: 0.8;
+    }
+
+    .sns-nav-btn:hover {
+        transform: scale(1.05);
+        background: rgba(127, 127, 127, 0.15);
+    }
+
+    .sns-nav-btn.prev {
+        left: calc(50% - 36px);
+    }
+
+    .sns-nav-btn.next {
+        right: calc(50% - 36px);
+    }
+
+    /* Add bottom margin to carousel for buttons */
+    .sns-carousel-container {
+        margin-bottom: 40px;
+    }
+}
+
+/* Everytime Service Style */
+.sns-skin-everytime {
+    background-color: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 20px;
+    color: #292929;
+    max-width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); */
+}
+
+/* Also for the Generator Button if selected? No, that's diff */
+
+.sns-everytime-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.sns-everytime-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    border: 1px solid #eee;
+    font-size: 20px;
+}
+
+.sns-everytime-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sns-everytime-author {
+    font-weight: 600;
+    font-size: 15px;
+    color: #292929;
+}
+
+.sns-everytime-time {
+    font-size: 12px;
+    color: #a6a6a6;
+    margin-top: 2px;
+}
+
+.sns-everytime-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    color: #292929;
+}
+
+.sns-everytime-content {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.sns-everytime-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #a6a6a6;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.sns-everytime-stats span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sns-et-red {
+    color: #f91f15;
+}
+
+.sns-et-blue {
+    color: #0ca5af;
+}
+
+.sns-et-yellow {
+    color: #ffc107;
+}
+
+/* Everytime Comments */
+.sns-everytime-comments {
+    border-top: 1px solid #f2f2f2;
+    padding-top: 10px;
+}
+
+.sns-everytime-comment {
+    display: flex;
+    padding: 12px 0 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.sns-everytime-comment:last-child {
+    border-bottom: none;
+}
+
+/* Reference Style for Sub-comments */
+.sns-everytime-comment.sub {
+    padding: 10px 20px 10px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    width: calc(100% - 30px);
+    /* Adjusted for padding */
+    margin-left: 30px;
+    margin-bottom: 10px;
+    border-bottom: none;
+    margin-top: 5px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Parent comment with sub-replies: remove border-bottom */
+.sns-everytime-comment.has-sub {
+    border-bottom: none;
+}
+
+/* Last sub before another main comment: add separator line below */
+.sns-everytime-comment.last-sub-before-main {
+    margin-bottom: 14px;
+}
+
+.sns-everytime-comment.last-sub-before-main::after {
+    content: '';
+    position: absolute;
+    left: -30px;
+    right: 0;
+    bottom: -8px;
+    height: 1px;
+    background-color: #eee;
+}
+
+.sns-everytime-comment.sub::before {
+    content: '';
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: -30px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAAAXNSR0IArs4c6QAACg1JREFUeF7t3cFuXEUWxvHb4kXCEhEWDooldsmbjJ+EzJvkTZIdEpHwYkAs8YswPZoZEyXEdtc9t+rWOd0/tqlT9fX/fH/ZYOQcFv8ggEBZAoeyyQVHAIGFwEqAQGECBC68PNERILAOIFCYAIELL090BAisAwgUJkDgwssTHQEC6wAChQkQuPDyREeAwDqAQGECBC68PNERILAOIFCYAIELL090BAisAwgUJkDgwssTHQEC6wAChQkQuPDyREeAwDqAQGECBC68PNERILAOIFCYAIELL090BAisAwgUJkDgwssTHQEC6wAChQkQuPDyREeAwDqAQGECBC68PNERILAOIFCYAIELL090BAisAwgUJkDgwssTHQEC6wAChQkQuPDyREeAwDqAQGECBC68PNERILAOIFCYAIELL090BAisAwgUJkDgwssTHQEC6wAChQkQuPDyREeAwDqAQGECBC68PNERILAOIFCYAIELL090BAisAwgUJkDgwssTHQEC6wAChQmclcA///Lru2VZXgX2cXf94vnXgTkjCEwlQOD/4yfw1Bp6PEqAwASOdsdcAgIEJnCCGooQJUBgAke7Yy4BAQITOEENRYgSIDCBo90xl4AAgQmcoIYiRAkQmMDR7phLQIDABE5QQxGiBAhM4Gh3zCUgQGACJ6ihCFECBCZwtDvmEhAgMIET1FCEKAECEzjaHXMJCBCYwAlqKEKUAIEJHO2OuQQECEzgBDUUIUqAwASOdsdcAgIEJnCCGooQJUBgAke7Yy4BAQITOEENRYgSIDCBo90xl4AAgQmcoIYiRAkQmMDR7phLQIDABE5QQxGiBAhM4Gh3zCUgQGACJ6ihCFECBCZwtDvmEhAgMIET1FCEKAECEzjaHXMJCBCYwAlqKEKUAIEJHO2OuQQECEzgBDUUIUqAwASOdsdcAgIEJvDqGv50+/uzH66+uVs9aKA7AQITeFWpfv7l13fLsjw7HI43L6++e79q2OHuBAhM4OZS3cv76n7gjsTN6IYdJDCBm8r1N3n/miFxE71xhwhM4JPtekReEp8kN/4AgQn8ZMtOyEvi8Y4++QKBCfxoQRrlJfFEiQlM4Afrt1JeEk+SmMAE/qJ6QXlJPEFiAhP4s9ptlJfEO0tMYAJ/rFwneUm8o8QEJvDHun24/e3H4/H4pmP//Jy4I8yHriIwgT/rBYkHG9f5egIT+ItKkbizZQOvIzCBH6wXiQda1/FqAhP40TqRuKNpg64iMIGfrBaJB5nX6VoCE/hklUh8EtG0AwQmcFP5SNyEafdDBCZwc+lI3Ixqt4MEJvCqspF4Fa7hhwlM4NUlI/FqZMMGCEzgULlIHMLWfYjABA6XisRhdN0GCUzgTWUi8SZ8m4cJTODNJSLxZoThCwhM4HB5Ph0kcReMqy8hMIFXl+axARJ3Q9l8EYEJ3FyWloMkbqHU7wyBCdyvTfc3kbg70kcvJDCBh7SNxEOwfnEpgQk8rGkkHob248UEJvDQlpF4KN6FwAQe27BlWUg8DjGBCTyuXZ/cTOIxmAlM4DHNeuBWEvdHTWAC92/VEzeSuC9uAhO4b6MabiNxA6TGIwQmcGNV+h4jcR+eBCZwnyYFbiFxANrfRghM4O0t2nADiTfAWxY/B77Hd3f94vnX21CajhIgcZQcgf8iR+B4h7pMkjiG0bfQvoWONWfAFInXQyUwgde3ZuAEidfBJTCB1zVmh9MkbodMYAK3t2XHkyRug01gArc1ZcIpEp+GTmACn27JxBMkfho+gQk8Uc+2p0n8OCcCE7jNosmnSPzwAgh8L/DhcHg7uaOeP0HgeDz+Y1mWZx1B3R0Ox5uXV9+973jnrlcReFfcHktIoLTEBE7YKJF2J1BWYgLv3hUPJiVQUmICJ22TWFMIlJOYwFN64tHEBEpJTODETRJtGoEyEhN4Wkc8nJrAcXl7/f3zm9QZ/UaO7OuRbxKB99cvnr+e9PaqZ30FXoXL4QsgUEbe/+6CwBfQSB+xmUApeQncvFcHL4BAOXkJfAGt9BGbCJT9pYa+hW7ar0NnTKCsvL4Cn3ErfbQmAqXlPTuBm1bmUEkCH27/9ep4PLzrGL68vATu2AZXjSNA3sfZntW/A4+rkJtnESDv0+QJPKuZ3j1JgLwnEZ3X/8hx+uM6UYUAeds25StwGyendiRA3nbYBG5n5eQOBEbI++fhq9c/XH1zt0P83Z8g8O7IPfgYgRHyVv+tk6faQuBThPz5LgTIG8NM4Bg3Ux0JkDcOk8BxdiY7ECDvNogE3sbP9AYC5N0A736UwNsZuiFAgLwBaA+MELgPR7esIEDeFbBOHCVwP5ZuaiBA3gZIK44QeAUsR7cRGCDvcjgcX1f+2wW3ET2zX2q3FYb5cQTIO4atr8BjuLr1EwLkHVcHAo9j6+ZlWcg7tgYEHsv3om8n7/j1E3g844t8gbz7rJ3A+3C+qFfIu9+6Cbwf64t4ibz7rpnA+/I+69fIu/96Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+qFfIu9+6Cbw/87N8kbz7rJ3A+3C+of1Wj4+p4F25gAAAABJRU5ErkJggg==");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Redefine avatar for sub-comment if slightly smaller? No, looks same in Ref */
+
+.sns-everytime-comment.sub .sns-everytime-comment-avatar {
+    margin-right: 10px;
+}
+
+.sns-everytime-comment-avatar {
+    width: 28px;
+    height: 28px;
+    background-color: #eee;
+    border-radius: 8px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sns-everytime-comment-body {
+    flex: 1;
+    padding-top: 5px;
+}
+
+.sns-everytime-comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.sns-everytime-comment-author {
+    font-weight: 600;
+    font-size: 13px;
+    color: #444;
+}
+
+.sns-everytime-comment-author.writer {
+    color: #1db1ac;
+    /* OP Highlight - Teal color from Everytime */
+}
+
+.sns-everytime-comment-text {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 6px 0;
+    color: #222;
+}
+
+.sns-everytime-comment-time {
+    font-size: 13px;
+    color: #959595;
+}
+
+/* Dark Mode Overrides */
+.sns-theme-dark .sns-skin-everytime {
+    background-color: #1e1e1e;
+    border-color: #333;
+    color: #e0e0e0;
+}
+
+.sns-theme-dark .sns-everytime-avatar {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+.sns-theme-dark .sns-everytime-author {
+    color: #ececec;
+}
+
+.sns-theme-dark .sns-everytime-time {
+    color: #888;
+}
+
+.sns-theme-dark .sns-everytime-title {
+    color: #fff;
+}
+
+.sns-theme-dark .sns-everytime-content {
+    color: #ddd;
+}
+
+.sns-theme-dark .sns-everytime-comments {
+    border-top-color: #333;
+}
+
+.sns-theme-dark .sns-everytime-comment {
+    border-bottom-color: #2a2a2a;
+}
+
+.sns-theme-dark .sns-everytime-comment.sub {
+    background-color: #252525;
+    border-bottom-color: #333;
+}
+
+.sns-theme-dark .sns-everytime-comment.last-sub-before-main::after {
+    background-color: #2a2a2a;
+}
+
+.sns-theme-dark .sns-everytime-comment-avatar {
+    background-color: #444;
+}
+
+.sns-theme-dark .sns-everytime-comment-author {
+    color: #ccc;
+}
+
+.sns-theme-dark .sns-everytime-comment-author.writer {
+    color: #26c6da;
+    /* Lighter teal for dark mode */
+}
+
+.sns-theme-dark .sns-everytime-comment-text {
+    color: #ddd;
+}
+
+/* Everytime Carousel Fixes */
+.sns-carousel-wrapper .sns-skin-everytime {
+    flex: 0 0 85%;
+    width: 85%;
+    scroll-snap-align: center;
+    max-height: 650px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.sns-carousel-wrapper .sns-skin-everytime:first-child {
+    margin-left: calc((100% - 85%) / 2);
+}
+
+.sns-carousel-wrapper .sns-skin-everytime:last-child {
+    margin-right: calc((100% - 85%) / 2);
+}
+
+@media screen and (max-width: 1000px) {
+
+    .sns-carousel-wrapper>div,
+    .sns-carousel-wrapper .sns-skin-everytime,
+    .sns-carousel-wrapper .sns-skin-instagram {
+        flex: 0 0 96%;
+        width: 96%;
+    }
+
+    .sns-carousel-wrapper>div:first-child {
+        margin-left: 2%;
+    }
+
+    .sns-carousel-wrapper>div:last-child {
+        margin-right: 2%;
+    }
+}
+
+.sns-carousel-wrapper .sns-skin-everytime::-webkit-scrollbar {
+    width: 0 !important;
+    display: none !important;
+}
+
+/* =============================================
+   MESSENGER PLATFORM STYLES
+   ============================================= */
+
+/* Messenger Header */
+.sns-messenger-header {
+    padding: 12px 15px;
+    background: #f0f2f5;
+    border-bottom: 1px solid #e4e6eb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sns-theme-dark .sns-messenger-header {
+    background: #242526;
+    border-bottom: 1px solid #3e4042;
+}
+
+.sns-messenger-header-avatars {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sns-messenger-header-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.sns-messenger-header-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #050505;
+}
+
+.sns-theme-dark .sns-messenger-header-title {
+    color: #e4e6eb;
+}
+
+.sns-messenger-member-count {
+    font-weight: 400;
+    font-size: 13px;
+    color: #65676b;
+    margin-left: 4px;
+}
+
+.sns-theme-dark .sns-messenger-member-count {
+    color: #b0b3b8;
+}
+
+/* Messenger Chat Container */
+.sns-messenger-chat-container {
+    padding: 15px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sns-theme-dark .sns-messenger-chat-container {
+    background: #18191a;
+}
+
+/* Message Wrapper */
+.sns-messenger-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.sns-messenger-message.right {
+    flex-direction: row-reverse;
+}
+
+/* Avatar */
+.sns-messenger-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/* Message Content */
+.sns-messenger-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 60%;
+}
+
+.sns-messenger-message.right .sns-messenger-content {
+    align-items: flex-end;
+}
+
+/* Sender Name (for group chats) */
+.sns-messenger-sender {
+    font-size: 12px;
+    font-weight: 500;
+    color: #65676b;
+    padding-left: 12px;
+    margin-bottom: 2px;
+}
+
+.sns-theme-dark .sns-messenger-sender {
+    color: #b0b3b8;
+}
+
+/* Message Bubble */
+.sns-messenger-bubble {
+    padding: 8px 12px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.sns-messenger-bubble.left {
+    background-color: #e4e6eb;
+    color: #050505;
+    border-top-left-radius: 4px;
+}
+
+.sns-theme-dark .sns-messenger-bubble.left {
+    background-color: #3e4042;
+    color: #e4e6eb;
+}
+
+.sns-messenger-bubble.right {
+    background-color: #0084ff;
+    color: #ffffff;
+    border-top-right-radius: 4px;
+}
+
+/* Hashtags and Mentions in Bubbles */
+.sns-messenger-bubble .sns-hashtag {
+    color: #0084ff;
+    font-weight: 500;
+}
+
+.sns-messenger-bubble.right .sns-hashtag {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.sns-theme-dark .sns-messenger-bubble.left .sns-hashtag {
+    color: #2e89ff;
+}
+
+/* Media Attachment */
+.sns-messenger-media {
+    font-size: 13px;
+    color: #65676b;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sns-theme-dark .sns-messenger-media {
+    color: #b0b3b8;
+}
+
+.sns-messenger-media i {
+    opacity: 0.7;
+}
+
+/* Timestamp */
+.sns-messenger-time {
+    font-size: 11px;
+    color: #65676b;
+    padding-left: 12px;
+}
+
+.sns-theme-dark .sns-messenger-time {
+    color: #b0b3b8;
+}
+
+.sns-messenger-time-right {
+    font-size: 11px;
+    color: #65676b;
+    padding-right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+.sns-theme-dark .sns-messenger-time-right {
+    color: #b0b3b8;
+}
+
+/* Read Receipt */
+.sns-messenger-read {
+    font-size: 11px;
+    color: #0084ff;
+    font-weight: 500;
+}
+
+.sns-theme-dark .sns-messenger-read {
+    color: #2e89ff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .sns-messenger-content {
+        max-width: 75%;
+    }
+
+    .sns-messenger-bubble {
+        font-size: 14px;
+    }
+
+    .sns-messenger-header-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+}
+
+/* =============================================
+   END MESSENGER PLATFORM STYLES
+   ============================================= */
+
+/* --- High Specificity Input Overrides (Light/Default) --- */
+#sns-global-menu .sns-menu-input,
+#sns-global-menu .sns-menu-select,
+.sns-start-config input.sns-start-count-input,
+.sns-start-config textarea.sns-start-instruction-input,
+.sns-start-config select.sns-start-preset-select {
+    background: #ffffff !important;
+    color: #1a1a1b !important;
+    border: 1px solid #ccc !important;
+}
+
+#sns-global-menu .sns-menu-select option,
+.sns-start-config select.sns-start-preset-select option {
+    background: #ffffff !important;
+    color: #1a1a1b !important;
+}
+
+/* --- High Specificity Input Overrides (Dark Mode) --- */
+#sns-global-menu.sns-theme-dark .sns-menu-input,
+#sns-global-menu.sns-theme-dark .sns-menu-select,
+.sns-theme-dark .sns-start-config input.sns-start-count-input,
+.sns-theme-dark .sns-start-config textarea.sns-start-instruction-input,
+.sns-theme-dark .sns-start-config select.sns-start-preset-select {
+    background: #202124 !important;
+    color: #eeeeee !important;
+    border: 1px solid #5f6368 !important;
+}
+
+#sns-global-menu.sns-theme-dark .sns-menu-select option,
+.sns-theme-dark .sns-start-config select.sns-start-preset-select option {
+    background: #202124 !important;
+    color: #eeeeee !important;
+}
+
+/* --- Dark Mode Header Color Override (FIXED) --- */
+.sns-theme-dark .sns-header-bar,
+.sns-theme-dark .sns-header-title,
+.sns-theme-dark .sns-header-btn,
+.sns-theme-dark .sns-page-indicator,
+.sns-theme-dark .sns-chevron,
+.sns-theme-dark .sns-icon-brand {
+    color: #e5e5e5 !important;
+}
+
+/* --- Fix Video Icon Overlap in Twitter Media (FIXED) --- */
+.sns-twitter-media-item {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.sns-media-icon {
+    position: static !important;
+    transform: none !important;
+    margin-bottom: 12px !important;
+    background: transparent !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 32px !important;
+    display: inline-block !important;
+}
+
+/* --- Placeholder Styling --- */
+.sns-menu-input::placeholder,
+.sns-start-instruction-input::placeholder {
+    color: #888 !important;
+    opacity: 0.7 !important;
+}
+
+.sns-theme-dark .sns-menu-input::placeholder,
+.sns-theme-dark .sns-start-instruction-input::placeholder,
+#sns-global-menu.sns-theme-dark .sns-menu-input::placeholder {
+    color: #bbb !important;
+    opacity: 0.7 !important;
+}
+
+/* --- Instagram Media Gallery & Dark Mode Fixes --- */
+.sns-ig-scroll-btn {
+    display: none !important;
+}
+
+.sns-instagram-media-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+.sns-instagram-media-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.sns-instagram-media-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    position: relative;
+    aspect-ratio: 1/1;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #333;
+}
+
+.sns-theme-dark .sns-instagram-media-item {
+    background-color: #121212 !important;
+    color: #eee !important;
+}
+
+.sns-instagram-media-placeholder {
+    margin-bottom: 16px;
+    opacity: 0.5;
+    font-size: 3rem;
+    color: inherit;
+}
+
+.sns-instagram-media-desc {
+    width: 90%;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    backdrop-filter: blur(2px);
+    color: #111;
+}
+
+.sns-theme-dark .sns-instagram-media-desc {
+    background: rgba(40, 40, 40, 0.85) !important;
+    color: #fff !important;
+}
+
+.sns-ig-text-p {
+    color: var(--sns-text);
+    word-break: break-word;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.sns-instagram-caption-user,
+.sns-ig-comment-user {
+    display: inline;
+}
+
+/* Hashtag Colors */
+.sns-skin-twitter .sns-hashtag,
+.sns-skin-twitter .sns-mention {
+    color: #1d9bf0;
+}
+
+.sns-skin-instagram .sns-hashtag,
+.sns-skin-instagram .sns-mention,
+.sns-skin-instagram .sns-ig-mention {
+    color: #0063c7;
+}
+
+/* Hide disabled Navigation buttons globally */
+.sns-nav-prev[disabled],
+.sns-nav-next[disabled],
+.sns-header-btn[disabled] {
+    opacity: 0.2 !important;
+    pointer-events: none !important;
+}
+
+/* Instagram Dark Mode Hashtag */
+.sns-theme-dark .sns-skin-instagram .sns-hashtag,
+.sns-theme-dark .sns-skin-instagram .sns-mention,
+.sns-theme-dark .sns-skin-instagram .sns-ig-mention {
+    color: #0095f6;
+    /* Brighter blue for dark background */
+}
+
+#chat .last_mes .sns-injection-point {
+    margin-bottom: 50px;
+}
