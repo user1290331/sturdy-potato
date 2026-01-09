@@ -3638,64 +3638,6 @@ select.sns-start-preset-select option {
     flex-direction: row-reverse;
 }
 
-/* Typing Indicator (... animation) */
-.sns-messenger-typing-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 12px;
-    background-color: #e4e6eb;
-    border-radius: 18px;
-    height: 20px;
-}
-
-.sns-theme-dark .sns-messenger-typing-indicator {
-    background-color: #3e4042;
-}
-
-.sns-messenger-message.right .sns-messenger-typing-indicator {
-    background-color: #0084ff;
-}
-
-.sns-messenger-typing-indicator span {
-    width: 6px;
-    height: 6px;
-    background-color: #65676b;
-    border-radius: 50%;
-    animation: typingDot 1.4s infinite;
-}
-
-.sns-theme-dark .sns-messenger-typing-indicator span {
-    background-color: #b0b3b8;
-}
-
-.sns-messenger-message.right .sns-messenger-typing-indicator span {
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.sns-messenger-typing-indicator span:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.sns-messenger-typing-indicator span:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.sns-messenger-typing-indicator span:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes typingDot {
-    0%, 60%, 100% {
-        transform: translateY(0);
-        opacity: 0.7;
-    }
-    30% {
-        transform: translateY(-8px);
-        opacity: 1;
-    }
-}
-
 /* Avatar */
 .sns-messenger-avatar {
     width: 28px;
@@ -3722,7 +3664,7 @@ select.sns-start-preset-select option {
     align-items: flex-end;
 }
 
-/* Sender Name (for group chats) */
+/* Sender Name */
 .sns-messenger-sender {
     font-size: 12px;
     font-weight: 500;
@@ -3732,19 +3674,6 @@ select.sns-start-preset-select option {
 }
 
 .sns-theme-dark .sns-messenger-sender {
-    color: #b0b3b8;
-}
-
-.sns-messenger-sender-right {
-    font-size: 12px;
-    font-weight: 500;
-    color: #65676b;
-    padding-right: 12px;
-    margin-bottom: 2px;
-    text-align: right;
-}
-
-.sns-theme-dark .sns-messenger-sender-right {
     color: #b0b3b8;
 }
 
@@ -3786,60 +3715,6 @@ select.sns-start-preset-select option {
 }
 
 .sns-theme-dark .sns-messenger-bubble.left .sns-hashtag {
-    color: #2e89ff;
-}
-
-/* Media Attachment */
-.sns-messenger-media {
-    font-size: 13px;
-    color: #65676b;
-    padding: 4px 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.sns-theme-dark .sns-messenger-media {
-    color: #b0b3b8;
-}
-
-.sns-messenger-media i {
-    opacity: 0.7;
-}
-
-/* Timestamp */
-.sns-messenger-time {
-    font-size: 11px;
-    color: #65676b;
-    padding-left: 12px;
-}
-
-.sns-theme-dark .sns-messenger-time {
-    color: #b0b3b8;
-}
-
-.sns-messenger-time-right {
-    font-size: 11px;
-    color: #65676b;
-    padding-right: 12px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    justify-content: flex-end;
-}
-
-.sns-theme-dark .sns-messenger-time-right {
-    color: #b0b3b8;
-}
-
-/* Read Receipt */
-.sns-messenger-read {
-    font-size: 11px;
-    color: #0084ff;
-    font-weight: 500;
-}
-
-.sns-theme-dark .sns-messenger-read {
     color: #2e89ff;
 }
 
