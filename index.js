@@ -877,35 +877,39 @@
             const messages = [];
 
             // Main message
-            messages.push({
-                sender: senderName,
-                content: post.content,
-                time: post.date || '',
-                media: post.media && post.media.length > 0 ? post.media[0] : null,
-                isCurrentUser: isCurrentUser
-            });
+            if (post.content && post.content.trim()) {
+                messages.push({
+                    sender: senderName,
+                    content: post.content,
+                    time: post.date || '',
+                    media: post.media && post.media.length > 0 ? post.media[0] : null,
+                    isCurrentUser: isCurrentUser
+                });
+            }
 
             // Replies are sequential messages
             if (post.replies && post.replies.length > 0) {
                 post.replies.forEach(reply => {
                     const replyIsCurrentUser = reply.username === currentUser ||
                                                reply.displayName === currentUser;
-                    messages.push({
-                        sender: reply.displayName || reply.username || 'User',
-                        content: reply.content,
-                        time: reply.time || '',
-                        media: null,
-                        isCurrentUser: replyIsCurrentUser
-                    });
+                    if (reply.content && reply.content.trim()) {
+                        messages.push({
+                            sender: reply.displayName || reply.username || 'User',
+                            content: reply.content,
+                            time: reply.time || '',
+                            media: null,
+                            isCurrentUser: replyIsCurrentUser
+                        });
+                    }
                 });
             }
 
-            // Render all messages
+            // Render all messages with typing indicator
             let html = '';
-            messages.forEach(msg => {
+            messages.forEach((msg, idx) => {
                 const msgAlignClass = msg.isCurrentUser ? 'right' : 'left';
 
-                html += `<div class="sns-messenger-message ${msgAlignClass}">`;
+                html += `<div class="sns-messenger-message ${msgAlignClass}" data-msg-index="${idx}">`;
 
                 if (!msg.isCurrentUser) {
                     // Left side message: avatar + bubble + time
@@ -915,22 +919,29 @@
                         </div>
                         <div class="sns-messenger-content">
                             ${isGroupChat ? `<div class="sns-messenger-sender">${Utils.escapeHtml(msg.sender)}</div>` : ''}
-                            <div class="sns-messenger-bubble left">
+                            <div class="sns-messenger-typing-indicator">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="sns-messenger-bubble left" style="display: none;">
                                 ${Utils.formatContent(msg.content)}
                             </div>
-                            ${msg.media ? `<div class="sns-messenger-media"><i class="fa-regular fa-image"></i> ${Utils.escapeHtml(msg.media)}</div>` : ''}
-                            <div class="sns-messenger-time">${msg.time}</div>
+                            ${msg.media ? `<div class="sns-messenger-media" style="display: none;"><i class="fa-regular fa-image"></i> ${Utils.escapeHtml(msg.media)}</div>` : ''}
+                            <div class="sns-messenger-time" style="display: none;">${msg.time}</div>
                         </div>
                     `;
                 } else {
-                    // Right side message: time + bubble
+                    // Right side message: time + bubble (with sender name for group)
                     html += `
                         <div class="sns-messenger-content">
-                            <div class="sns-messenger-bubble right">
+                            ${isGroupChat ? `<div class="sns-messenger-sender-right">${Utils.escapeHtml(msg.sender)}</div>` : ''}
+                            <div class="sns-messenger-typing-indicator">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="sns-messenger-bubble right" style="display: none;">
                                 ${Utils.formatContent(msg.content)}
                             </div>
-                            ${msg.media ? `<div class="sns-messenger-media"><i class="fa-regular fa-image"></i> ${Utils.escapeHtml(msg.media)}</div>` : ''}
-                            <div class="sns-messenger-time-right">
+                            ${msg.media ? `<div class="sns-messenger-media" style="display: none;"><i class="fa-regular fa-image"></i> ${Utils.escapeHtml(msg.media)}</div>` : ''}
+                            <div class="sns-messenger-time-right" style="display: none;">
                                 ${readIndicator}
                                 ${msg.time}
                             </div>
@@ -2147,7 +2158,19 @@
                 hasData: pages.length > 0 && posts.length > 0 // Flag for wrapper to show initial generate UI or posts
             };
 
-            return window.SNS_Reactions.Templates.wrapper(html, collapsed, messageId, themeMode, pageInfo, lastPlatform, settingsData);
+            const finalHtml = window.SNS_Reactions.Templates.wrapper(html, collapsed, messageId, themeMode, pageInfo, lastPlatform, settingsData);
+
+            // Trigger messenger animation on initial render
+            if (platform === 'messenger' && posts.length > 0) {
+                setTimeout(() => {
+                    const wrapper = $(`.sns-reaction-wrapper[data-mesid="${messageId}"] .sns-carousel-wrapper`);
+                    if (wrapper.length > 0) {
+                        window.SNS_Reactions.Actions.triggerMessengerAnimation(wrapper);
+                    }
+                }, 100);
+            }
+
+            return finalHtml;
         }
     };
 
@@ -2878,32 +2901,45 @@ Stats: 15L 2S 8C
 ## Messenger Conversation Generation
 
 ### Platform Description
-- Universal chat messaging platform (language-agnostic)
-- Supports both 1:1 and group chat conversations
-- Natural, flowing conversations with back-and-forth exchanges
+- **REAL messenger conversations**: Short messages, frequent back-and-forth, lots of line breaks
+- **NOT social media posts**: Avoid long paragraphs or monologues
+- Natural, rapid-fire exchanges like actual texting
 - Mix of casual and formal tone based on story context
 
-### Conversation Types
-**1:1 Chat:**
-- Two-person conversation
-- Direct, personal exchanges
-- Natural question-answer flow
+### CRITICAL: Messenger vs SNS
+❌ **WRONG (SNS-style)**: Long single messages with complete thoughts
+✅ **CORRECT (Messenger-style)**: Short bursts, multiple bubbles, natural pauses
 
-**Group Chat:**
-- 3-8 participants (including current user)
-- Multiple speakers with varied personalities
-- Mix of direct replies and side conversations
-- More dynamic and varied interactions
+**Bad Example:**
+\`\`\`
+User: Hey! I was thinking about what we discussed yesterday and I really think we should go ahead with that plan because it makes a lot of sense and everyone would benefit from it.
+\`\`\`
 
-### Conversation Style
-- Natural conversation flow (question → answer, statement → reaction)
-- Mix formal/casual based on context
-- Emojis encouraged when appropriate
-- Realistic timestamps (e.g., "3:42 PM", "15:42", "Yesterday", "오후 3:42")
-- Read receipts for sent messages
+**Good Example:**
+\`\`\`
+User: Hey!
+[REPLIES]
+User: I was thinking about yesterday [timestamp]
+User: We should totally do that plan [timestamp]
+User: Everyone would love it [timestamp]
+[/REPLIES]
+\`\`\`
 
 ---
 ## 🚫 CRITICAL RULES - MUST FOLLOW 🚫
+
+### ⚠️ CONVERSATION DIVERSITY RULE (CRITICAL!)
+**MUST generate at least ONE 1:1 conversation** among the \${maxPosts} exchanges
+- If generating 3 posts → at least 1 must be Type: 1on1
+- If generating 5 posts → at least 1-2 must be Type: 1on1
+- **Do NOT make everything group chats!**
+
+### ⚠️ MESSAGE STYLE RULE (CRITICAL!)
+**Each person should send MULTIPLE short messages in a row:**
+- Use [REPLIES] extensively for sequential bubbles from same person
+- Break long thoughts into 2-4 short messages
+- Realistic typing pauses between bubbles
+- Example: "hey" → "how are you?" → "wanna hang out later?" (3 bubbles)
 
 ### ⚠️ CONVERSATION BLOCK (REQUIRED!)
 **EVERY generation MUST start with:**
@@ -2915,73 +2951,118 @@ Participants: CurrentUser, Person1, Person2, Person3
 \`\`\`
 
 **Rules:**
-- First participant = current user (messages will be right-aligned)
-- Other participants = other people (messages will be left-aligned)
+- First participant = current user (messages right-aligned)
+- Other participants = other people (messages left-aligned)
 - 1on1: exactly 2 participants
 - group: 3-8 participants
-- Names should match story context (character names, user name, etc.)
+- Names match story context
 
 ### ⚠️ COUNT RULE (CRITICAL!)
 - **GENERATE EXACTLY \${maxPosts} MESSAGE EXCHANGES**
-- Each [POST] = one message in the conversation
-- Messages should alternate between speakers naturally
-- Use [REPLIES] for rapid-fire consecutive messages
+- Each [POST] = one speaking turn (but can have multiple bubbles via REPLIES)
+- Use [REPLIES] liberally for realistic chat flow
 
-### ✅ Message Format:
+---
+
+### ✅ REALISTIC MESSENGER PATTERNS
+
+**Pattern 1: Quick Back-and-Forth (티키타카)**
 \`\`\`
 [POST]
-User: sender_name (must match one from Participants list)
-Name: display_name (optional, same as User typically)
-Content: message text
-Date: timestamp (flexible format)
-ReadBy: Person1, Person2 (optional, who has read this message)
-Media: [Image] photo description (optional)
-
+User: Sarah
+Content: hey
+Date: 3:42 PM
+ReadBy: You
 [REPLIES]
-Person2: quick reply [timestamp]
-Person1: another message [timestamp]
+Sarah: you free? [3:42 PM]
+[/REPLIES]
+[/POST]
+
+[POST]
+User: You
+Content: yeah why
+Date: 3:43 PM
+[REPLIES]
+You: what's up [3:43 PM]
+[/REPLIES]
+[/POST]
+
+[POST]
+User: Sarah
+Content: wanna grab coffee?
+Date: 3:44 PM
+ReadBy: You
+[REPLIES]
+Sarah: like right now lol [3:44 PM]
 [/REPLIES]
 [/POST]
 \`\`\`
 
-### ✅ Conversation Flow Rules:
-**1:1 Chat:**
-- Alternate speakers: A → B → A → B → A
-- Natural question-answer or statement-reaction patterns
-- Example:
-  - A: "Did you see the new movie?"
-  - B: "Not yet! Is it good?"
-  - A: "Amazing! You should watch it"
+**Pattern 2: Multiple Bubbles (Natural Typing)**
+\`\`\`
+[POST]
+User: Mike
+Content: omg
+Date: 7:20 PM
+ReadBy: You
+[REPLIES]
+Mike: you won't believe what just happened [7:20 PM]
+Mike: so I was at the store [7:21 PM]
+Mike: and guess who I saw [7:21 PM]
+[/REPLIES]
+[/POST]
+\`\`\`
 
-**Group Chat:**
-- Mix speakers naturally: A → B → C → A → B
-- Some messages may get multiple reactions
-- Example:
-  - A: "Who wants to grab lunch?"
-  - B: "I'm in!"
-  - C: "What are we eating?"
-  - A: "How about pizza?"
-  - B: "Perfect!"
+**Pattern 3: Group Chat Dynamics**
+\`\`\`
+[POST]
+User: Emily
+Content: anyone want pizza?
+Date: 8:15 PM
+ReadBy: You, Jake, Sarah
+[REPLIES]
+Jake: yesss [8:15 PM]
+Sarah: I'm in! [8:15 PM]
+You: what kind [8:16 PM]
+[/REPLIES]
+[/POST]
+\`\`\`
 
-### ✅ ReadBy Usage:
+---
+
+### Message Format
+\`\`\`
+[POST]
+User: sender_name
+Name: display_name
+Content: short message (1-15 words max!)
+Date: timestamp
+ReadBy: Name1, Name2 (optional)
+
+[REPLIES]
+Person: another short msg [timestamp]
+Person: and another [timestamp]
+SamePersonAgain: typing multiple bubbles [timestamp]
+[/REPLIES]
+[/POST]
+\`\`\`
+
+### ReadBy Usage
 - For messages from others (NOT from current user)
-- Shows who has read the message
 - Format: \`ReadBy: Name1, Name2\`
-- Example:
-  - Message from Person1: \`ReadBy: CurrentUser, Person2\`
-  - Message from CurrentUser: NO ReadBy field (it's YOUR message)
 
 ---
 
 ### Language Rules
 ${this.getLanguageInstruction()}
-- Adapt tone to story context (casual friends, formal work, romantic, etc.)
-- Use emojis naturally when appropriate
-- Keep messages conversational and realistic
+- **Keep messages SHORT** (like real texting)
+- Use emojis naturally
+- Casual abbreviations OK (lol, omg, btw, etc.)
+- Break sentences into multiple bubbles
 
 ---
 
-### Example 1: 1:1 Chat
+### Example 1: 1:1 Chat (Realistic)
 \`\`\`
 [CONVERSATION]
 Type: 1on1
@@ -2990,68 +3071,90 @@ Participants: You, Sarah
 
 [POST]
 User: Sarah
-Name: Sarah
-Content: Hey! Are you free this weekend?
+Content: hey!
 Date: 3:42 PM
 ReadBy: You
-[/POST]
-
-[POST]
-User: You
-Name: You
-Content: Yeah, what's up?
-Date: 3:45 PM
 [REPLIES]
-Sarah: Want to go hiking? [3:46 PM]
+Sarah: you busy? [3:42 PM]
 [/REPLIES]
 [/POST]
 
 [POST]
 User: You
-Name: You
-Content: Sounds great! Where are we going?
-Date: 3:47 PM
+Content: nope
+Date: 3:43 PM
+[REPLIES]
+You: what's up [3:43 PM]
+[/REPLIES]
+[/POST]
+
+[POST]
+User: Sarah
+Content: wanna do something this weekend
+Date: 3:44 PM
+ReadBy: You
+[REPLIES]
+Sarah: maybe hiking? [3:44 PM]
+Sarah: or just chill idk [3:45 PM]
+[/REPLIES]
+[/POST]
+
+[POST]
+User: You
+Content: hiking sounds fun
+Date: 3:46 PM
+[REPLIES]
+You: where tho [3:46 PM]
+[/REPLIES]
 [/POST]
 \`\`\`
 
-### Example 2: Group Chat
+### Example 2: Group Chat (Realistic)
 \`\`\`
 [CONVERSATION]
 Type: group
-Participants: You, Mike, Emily, Sarah
+Participants: You, Mike, Emily, Jake
 [/CONVERSATION]
 
 [POST]
 User: Mike
-Name: Mike
-Content: Who's up for the party tonight? 🎉
-Date: 7:23 PM
+Content: yooo
+Date: 7:20 PM
 ReadBy: You, Emily
 [REPLIES]
-Emily: Me! What time? [7:24 PM]
-Sarah: Count me in too [7:25 PM]
-[/REPLIES]
-[/POST]
-
-[POST]
-User: You
-Name: You
-Content: I'll be there around 8
-Date: 7:26 PM
-[REPLIES]
-Mike: Perfect! See you then [7:27 PM]
+Mike: party tonight [7:20 PM]
+Mike: who's coming [7:20 PM]
 [/REPLIES]
 [/POST]
 
 [POST]
 User: Emily
-Name: Emily
-Content: Should I bring snacks?
-Date: 7:28 PM
-ReadBy: You, Mike, Sarah
+Content: me!
+Date: 7:21 PM
+ReadBy: You, Mike, Jake
 [REPLIES]
-Sarah: Yes please! [7:29 PM]
-You: That would be awesome! [7:29 PM]
+Emily: what time [7:21 PM]
+[/REPLIES]
+[/POST]
+
+[POST]
+User: You
+Content: count me in
+Date: 7:22 PM
+[REPLIES]
+You: 9pm? [7:22 PM]
+[/REPLIES]
+[/POST]
+
+[POST]
+User: Jake
+Content: wait where
+Date: 7:23 PM
+ReadBy: You, Mike, Emily
+[REPLIES]
+Mike: my place [7:23 PM]
+Emily: bring snacks! [7:24 PM]
+You: I'll bring drinks [7:24 PM]
 [/REPLIES]
 [/POST]
 \`\`\`
@@ -3059,12 +3162,12 @@ You: That would be awesome! [7:29 PM]
 ---
 
 ### Important Notes
-- Messages should feel natural and conversational
-- Vary message length (short reactions to longer messages)
-- Include context-appropriate emojis
-- Timestamps should be realistic (a few minutes apart)
-- Group chats should have varied participation (not everyone replies to everything)
-- Match the tone and style to the roleplay context
+- **SHORT MESSAGES** (1-15 words per bubble)
+- **Multiple bubbles per person** (use REPLIES heavily)
+- **Quick back-and-forth** (티키타카 style)
+- **NO long paragraphs** (split into multiple messages)
+- **At least ONE 1:1 chat** in your generation
+- Match story context and character personalities
 
 [/Messenger]`;
                     break;
@@ -3874,7 +3977,57 @@ You: That would be awesome! [7:29 PM]
             const scrollAmount = wrapper.width() * 0.80; // Match 80% width + gap roughly
             wrapper.stop().animate({
                 scrollLeft: wrapper.scrollLeft() + (scrollAmount * direction)
-            }, 300);
+            }, 300, function() {
+                // After scroll animation, trigger messenger typing animation if applicable
+                const platformWrapper = wrapper.closest('.sns-platform-messenger');
+                if (platformWrapper.length > 0) {
+                    window.SNS_Reactions.Actions.triggerMessengerAnimation(wrapper);
+                }
+            });
+        },
+
+        triggerMessengerAnimation: (wrapper) => {
+            // Find the currently visible conversation card
+            const scrollLeft = wrapper.scrollLeft();
+            const cardWidth = wrapper.find('.sns-messenger-conversation-card').first().outerWidth(true);
+            const currentIndex = Math.round(scrollLeft / cardWidth);
+            const currentCard = wrapper.find('.sns-messenger-conversation-card').eq(currentIndex);
+
+            if (currentCard.length === 0) return;
+
+            // Find all messages in this card
+            const messages = currentCard.find('.sns-messenger-message');
+
+            messages.each(function(idx) {
+                const message = $(this);
+                const typingIndicator = message.find('.sns-messenger-typing-indicator');
+                const bubble = message.find('.sns-messenger-bubble');
+                const media = message.find('.sns-messenger-media');
+                const time = message.find('.sns-messenger-time, .sns-messenger-time-right');
+
+                // Reset state
+                typingIndicator.show();
+                bubble.hide();
+                media.hide();
+                time.hide();
+
+                // Delay based on message index (stagger)
+                const baseDelay = idx * 600; // 0.6s between each message start
+                const typingDuration = 800; // 0.8s typing indicator duration
+
+                // Show typing indicator
+                setTimeout(() => {
+                    typingIndicator.show();
+                }, baseDelay);
+
+                // Hide typing, show message
+                setTimeout(() => {
+                    typingIndicator.hide();
+                    bubble.fadeIn(200);
+                    media.fadeIn(200);
+                    time.fadeIn(200);
+                }, baseDelay + typingDuration);
+            });
         },
 
         onCarouselScroll: (wrapperElement) => {
