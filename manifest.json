@@ -2,11 +2,12 @@
     "display_name": "SNS 반응 - 메신저 추가",
     "loading_order": 100,
     "author": "user1290331",
-    "version": "1.7.2",
+    "version": "1.1.0",
     "js": "index.js",
     "css": "style.css"
 
 }
+
 
 
 
