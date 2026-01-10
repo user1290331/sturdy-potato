@@ -2847,7 +2847,6 @@ Stats: 15L 2S 8C
 ### ⚠️ MESSAGE STYLE RULE (CRITICAL!)
 - Multiple short messages per person (realistic chat flow)
 - Quick back-and-forth exchanges (티키타카)
-- Number of messages: 20 or more in one chat room
 - Each message: 1-20 words max
 
 ### ⚠️ NEW FORMAT (CRITICAL!)
@@ -4572,4 +4571,3 @@ ${this.getLanguageInstruction()}
     });
 
 })();
-

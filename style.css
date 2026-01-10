@@ -3974,3 +3974,20 @@ select.sns-start-preset-select option {
 #chat .last_mes .sns-injection-point {
     margin-bottom: 50px;
 }
+
+/* Mobile: Hide platform tab text, show icons only */
+@media (max-width: 600px) {
+    .sns-platform-tab.menu_button span {
+        display: none;
+    }
+
+    .sns-platform-tab.menu_button i {
+        margin-right: 0;
+        font-size: 16px !important;
+    }
+
+    .sns-platform-tab.menu_button {
+        min-width: 40px;
+        padding: 8px 12px;
+    }
+}
